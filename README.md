@@ -52,3 +52,6 @@ READMEを書きましたので、お忙しいと思いますがレビューを�
 - Ruby on Rails
 - インフラ
 - AWS S3
+
+## 画面遷移図
+Figma：https://www.figma.com/file/4XCBdbpBMDmMcXIkp2TTgF/%E3%83%94%E3%82%B9%E5%8D%92?type=design&node-id=0%3A1&mode=design&t=ghsewnKcCW1j2iMp-1
