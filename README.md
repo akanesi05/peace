@@ -57,4 +57,4 @@ READMEを書きましたので、お忙しいと思いますがレビューを�
 Figma：https://www.figma.com/file/4XCBdbpBMDmMcXIkp2TTgF/%E3%83%94%E3%82%B9%E5%8D%92?type=design&node-id=0%3A1&mode=design&t=ghsewnKcCW1j2iMp-1
 
 ## ER図
-ER図：[![Image from Gyazo](https://i.gyazo.com/ab2e678c3c5256b8894ca999e0830ed2.png)](https://gyazo.com/ab2e678c3c5256b8894ca999e0830ed2)
+ER図：[![Image from Gyazo](https://i.gyazo.com/6b3019b687a593529afc6cf3673d46d8.png)](https://gyazo.com/6b3019b687a593529afc6cf3673d46d8)
