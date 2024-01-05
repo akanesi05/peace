@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Poses</h1>
+<button type="submit" class="btn btn-primary">Button</button>
+<div id="poses">
+  <% @poses.each do |pose| %>
+    <%= render pose %>
+    <p>
+      <%= link_to "Show this pose", pose %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pose", new_pose_path %>
