@@ -8,9 +8,10 @@ CarrierWave.configure do |config|
     config.fog_directory  = 'pisusotu' # バケット名
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: ENV['A3UYY6XTJXMF66QTE'], # 環境変数
-      aws_secret_access_key: ENV['xLy4hDLd4QuRSh8cbKv2OXHZk4oKX7kKg12NPHjm'], # 環境変数
+      aws_access_key_id: ENV['AWS_ACCESS_KEY_ID'], # 環境変数
+      aws_secret_access_key: ENV['AWS_SECRET_ACCESS_KEY'], # 環境変数
       region: 'ap-northeast-1', # リージョン
       path_style: true
     }
 end 
+
