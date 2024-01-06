@@ -13,6 +13,7 @@ threads min_threads_count, max_threads_count
 
 # Specifies that the worker count should equal the number of processors in production.
 if ENV["RAILS_ENV"] == "production"
+  app_name = "pisusotu"
   require "concurrent-ruby"
   workers ENV.fetch("WEB_CONCURRENCY") { 4 }
   preload_app! 
