@@ -1,6 +1,6 @@
 class PosesController < ApplicationController
   def index
-    @poses = Pose.all
+    @poses = Pose.where.not(image: nil)
   end
     
   def show
