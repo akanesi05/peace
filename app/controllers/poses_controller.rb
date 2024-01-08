@@ -1,6 +1,6 @@
 class PosesController < ApplicationController
   def index
-    @poses = Pose.not(image: nil).includes(:user).order(created_at: :desc)
+    @poses = Pose.where.not(image: nil).includes(:user).order(created_at: :desc)
   end
     
   def show
