@@ -1,6 +1,6 @@
 class PosesController < ApplicationController
   def index
-    @poses = Pose.where.not(image: nil)
+    @poses = Pose.includes(:user).order(created_at: :desc)
   end
     
   def show
@@ -21,22 +21,24 @@ class PosesController < ApplicationController
   end
     
   def edit
-    @pose = Pose.find(params[:id])
+    @pose = current_user.poses.find(params[:id])
   end
     
   def update
-    @pose = Pose.find(params[:id])
-     if @pose.update(pose_params)
-       redirect_to @pose, notice: 'Pose was successfully updated.'
-     else
-        render :edit
-     end
+    @pose = current_user.poses.find(params[:id])
+    if @pose.update(pose_params)
+      redirect_to pose_path(@pose), success: t('defaults.flash_message.updated', item: Pose.model_name.human)
+    else
+      flash.now[:danger] = t('defaults.flash_message.not_updated', item: Pose.model_name.human)
+      render :edit, status: :unprocessable_entity
+    end
+
   end
     
   def destroy
-    @pose = Pose.find(params[:id])
-    @pose.destroy
-    redirect_to poses_url, notice: 'Pose was successfully destroyed.'
+    pose = current_user.poses.find(params[:id])
+    pose.destroy!
+    redirect_to poses_path, success: t('defaults.flash_message.deleted', item: Pose.model_name.human), status: :see_other
   end
     
   private
