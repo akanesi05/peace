@@ -18,9 +18,10 @@
             </div>
           </li>
   
+          
           <li class='nav-item'>
-            <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
-          </li>
+          <%= link_to t('header.bookmark_index'), bookmarks_poses_path, class: 'nav-link' %>
+        </li>
   
           <li class='nav-item dropdown dropdown-slide'>
             <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>

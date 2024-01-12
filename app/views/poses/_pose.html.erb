@@ -4,9 +4,31 @@
       <%= image_tag pose.image_url, class: "card-img-top", width: "300", height: "200" %>
       <div class="card-body">
         <div class="d-flex">
-          <h4 class="card-title"><%=  pose.name %></h4>          
+          <h4 class="card-title"><%=  pose.name %></h4>
+          
+          <% if current_user.own?(pose) %>
+          <div class='ms-auto'>
+              <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
+                <i class="bi bi-pencil-fill"></i>
+              <% end %>
+              <%= link_to pose_path(pose), id: "button-delete-#{pose.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                <i class="bi bi-trash-fill"></i>
+              <% end %>
+            </div>
+            <% else %>
+            <div class='ms-auto'>
+              <% if current_user.bookmark?(pose) %>
+                <%= render 'unbookmark', { pose: pose } %>
+              <% else %>
+                <%= render 'bookmark', { pose: pose } %>
+              <% end %>
+            </div>
+            <% end %> 
         </div>
       </div>
     </div>
   </div>
 </div>
+
+
+
