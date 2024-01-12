@@ -22,6 +22,7 @@ class PosesController < ApplicationController
     
   def edit
     @pose = current_user.poses.find(params[:id])
+    
   end
     
   def update
@@ -39,8 +40,13 @@ class PosesController < ApplicationController
     pose = current_user.poses.find(params[:id])
     pose.destroy!
     redirect_to poses_path, success: t('defaults.flash_message.deleted', item: Pose.model_name.human), status: :see_other
+  
   end
-    
+
+  def bookmarks
+    @bookmark_poses = current_user.bookmark_poses.includes(:user).order(created_at: :desc)
+  end
+  
   private
     
   def pose_params
