@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
   get 'sessions/new'
   get 'sessions/create'
   get 'sessions/destroy'
@@ -10,7 +12,7 @@ Rails.application.routes.draw do
 # config/routes.rb
   
   resources :bookmarks, only: [:create, :destroy]
-
+  resources :password_resets, only: %i[new create edit update]
 
   
   resources :poses do 
