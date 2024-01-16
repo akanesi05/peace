@@ -39,4 +39,10 @@ module Peace
     # Don't generate system test files.
     config.generators.system_tests = nil
   end
+  #〜〜中略〜〜
+  #class ActiveRecord::Base
+  #singleton_class.attr_accessor :timestamped_migrations
+  #self.timestamped_migrations = true
+  #end
+ 
 end
