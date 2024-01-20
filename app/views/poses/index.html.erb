@@ -1,6 +1,14 @@
 <p style="color: green"><%= notice %></p>
 
 <h1>Poses</h1>
+<div class="col-lg-10 offset-lg-1">
+
+
+      <%= render 'search_form', q: @q, url: poses_path %>
+
+
+
+</div>
 <div id="poses">
   <% @poses.each do |pose| %>
     <%= render pose %>
