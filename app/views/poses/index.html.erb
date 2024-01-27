@@ -1,6 +1,6 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Poses</h1>
+<h1>ポーズ</h1>
 <div class="col-lg-10 offset-lg-1">
 
 
@@ -9,13 +9,12 @@
 
 
 </div>
-<div id="poses">
+<div id="poses" class="row">
   <% @poses.each do |pose| %>
     <%= render pose %>
-    <p>
-      <%= link_to "Show this pose", pose %>
-    </p>
+    
   <% end %>
 </div>
 
-<%= link_to "New pose", new_pose_path %>
+<%= link_to "新ポーズ", new_pose_path %>
+

@@ -69,9 +69,7 @@ class PosesController < ApplicationController
       params.require(:pose).permit(:name, :image)
   end
 
-  def set_pose
-    @pose = Pose.find(params[:id])
-  end
+  
   # Only allow a list of trusted parameters through.
   
 end
