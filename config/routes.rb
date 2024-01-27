@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 # config/routes.rb
   
   resources :bookmarks, only: [:create, :destroy]
+  resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
 
   
@@ -19,9 +20,9 @@ Rails.application.routes.draw do
     collection do
       get :bookmarks
     end
+      get :search, on: :collection
   end
-  #resources :bookmarks, only: :index
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  
   root "poses#index"
   get "up" => "rails/health#show", as: :rails_health_check
 end

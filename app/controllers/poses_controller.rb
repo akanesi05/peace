@@ -2,7 +2,9 @@ class PosesController < ApplicationController
   def index
     #@poses = Pose.where.not(image: nil).includes(:user).order(created_at: :desc)
     @q = Pose.ransack(params[:q])
+    #@pose = Pose.ransack(params[:q])
     @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc)#.page(params[:page])
+    #@poses = @pose.result
   end
     
   def show
@@ -12,6 +14,8 @@ class PosesController < ApplicationController
   def new
      @pose = Pose.new
   end
+
+
     
   def create
     @pose = current_user.poses.build(pose_params)
@@ -52,9 +56,20 @@ class PosesController < ApplicationController
     
   end
   
+
+  def search
+    @poses = Pose.where("name like ?", "%#{params[:q]}%")
+    respond_to do |format|
+      format.js
+    end
+  end
   private
     
   def pose_params
       params.require(:pose).permit(:name, :image)
   end
+
+  
+  # Only allow a list of trusted parameters through.
+  
 end

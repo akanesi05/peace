@@ -1,13 +1,15 @@
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="pose-id-<%= pose.id %>">
     <div class="card">
-      <%= image_tag pose.image_url, class: "card-img-top", width: "300", height: "200" %>
+    <%= link_to  pose  do%>
+      <%= image_tag pose.image_url, class: "card-img-top", width: "300", height: "500" %>
+      <%end%>
       <div class="card-body">
-        <div class="d-flex">
+        <div class="d-flex column-gap-3">
           <h4 class="card-title"><%=  pose.name %></h4>
           
           <% if current_user.own?(pose) %>
-          <div class='ms-auto'>
+          <div class=''>
               <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
                 <i class="bi bi-pencil-fill"></i>
               <% end %>
@@ -15,8 +17,14 @@
                 <i class="bi bi-trash-fill"></i>
               <% end %>
             </div>
+            <p>
+            <%= link_to "もっと見る", pose %>
+            </p>
             <% else %>
-            <div class='ms-auto'>
+            <p>
+           <%= link_to "もっと見る", pose %>
+           </p>
+            <div class=''>
               <% if current_user.bookmark?(pose) %>
                 <%= render 'unbookmark', { pose: pose } %>
               <% else %>
