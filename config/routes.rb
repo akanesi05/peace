@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
       get :search, on: :collection
   end
-  
-  root "poses#index"
+  root 'top#index'
+  #root "poses#index"
   get "up" => "rails/health#show", as: :rails_health_check
 end
