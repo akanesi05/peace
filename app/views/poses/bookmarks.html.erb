@@ -1,11 +1,22 @@
 <% content_for(:title, t('.title')) %>
-<div class="container pt-3">
+
+<!-- 新しいレイアウト -->
+<div class="container">
   <div class="row">
     <div class="col-lg-10 offset-lg-1">
+
+      <!-- 通知メッセージ -->
+      <p style="color: green"><%= notice %></p>
+
+      <!-- ページのタイトル -->
+      <h1>ポーズ</h1>
+
       <!-- 検索フォーム -->
       <%= render 'search_form', q: @q, url: bookmarks_poses_path %>
+
     </div>
   </div>
+
   <!-- 掲示板一覧 -->
   <div class="row">
     <div class="col-12">
@@ -18,4 +29,7 @@
       </div>
     </div>
   </div>
+
+  <!-- 新ポーズのリンク -->
+  <%= link_to "新ポーズ", new_pose_path %>
 </div>

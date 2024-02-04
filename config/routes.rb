@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [:create, :destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
-
+  resources :contacts, only: [:new, :create]
   
   resources :poses do 
     collection do
@@ -22,7 +22,7 @@ Rails.application.routes.draw do
     end
       get :search, on: :collection
   end
-  
-  root "poses#index"
+  root 'top#index'
+  #root "poses#index"
   get "up" => "rails/health#show", as: :rails_health_check
 end

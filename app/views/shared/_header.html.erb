@@ -34,8 +34,13 @@
           <%= link_to 'ログイン', login_path, class: "nav-link" %>
         </li>
         
+        
         <li class='nav-item'>
-          <%#= link_to t('ログアウト'), logout_path, class: 'nav-link' %>  <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+          <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
+        </li>
+
+        <li class="nav-item">
+        <%= link_to 'お問い合せ', new_contact_path, class: "nav-link" %>
         </li>
           <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>

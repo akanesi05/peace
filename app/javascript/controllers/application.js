@@ -1,11 +1,11 @@
 import { Application } from "@hotwired/stimulus"
 import { Autocomplete } from 'stimulus-autocomplete' 
-
+console.log('hello!');
 const application = Application.start()
 application.register('autocomplete', Autocomplete)  
 
 // Configure Stimulus development experience
-application.debug = true
+application.debug = false
 window.Stimulus   = application
-console.log('hello!');
+
 export { application }
