@@ -1,9 +1,9 @@
 <header>
-    <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+    #<nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+    <%= image_tag 'logo.png' %>
       <%= link_to '/', class: 'navbar-brand' do %>
-        <h1 class="mx-2"><img
-        src="/assets/logo.png"
-        alt=""/></h1>
+       
+        <%= image_tag 'logo.png' %>
       <% end %>
       <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
         aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -39,9 +39,7 @@
           <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
         </li>
 
-        <li class="nav-item">
-        <%= link_to 'お問い合せ', new_contact_path, class: "nav-link" %>
-        </li>
+        
           <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
             <% end %>
