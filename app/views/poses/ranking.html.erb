@@ -1,0 +1,16 @@
+<h1>Pose Ranking</h1>
+
+<table>
+  <tr>
+    <th>ランク</th>
+    <th>ユーザー名</th>
+    <th>ブックマーク数</th>
+  </tr>
+  <% @poses.each.with_index(1) do |pose, i| %>
+    <tr>
+      <td><%= i %>位</td>
+      <td><%= pose.user.name %></td>
+      <td><%= pose.bookmarks_count %></td>
+    </tr>
+  <% end %>
+</table>

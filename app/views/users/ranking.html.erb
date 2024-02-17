@@ -1,0 +1,34 @@
+<table>
+  <tr>
+    <th>ランク</th>
+    <th>ユーザー名</th>
+    <th>訪問数</th>
+  </tr>
+  <% @bookmark.each.with_index(1) do |rank, i| %> 
+    <% if i == 1 %>
+      <tr>
+        # <td><%= image_tag("gold_icon.png") %><%= i %>位</td>
+        <td><%= rank.name %></td>
+        <td><%= rank.prefectures.count %></td> 
+      </tr>
+    <% elsif i == 2 %>
+      <tr>
+        # <td><%= image_tag("silver_icon.png") %><%= i %>位</td>
+        <td><%= rank.name %></td>
+        <td><%= rank.prefectures.count %></td> 
+      </tr>
+    <% elsif i == 3 %>
+      <tr>
+        # <td><%= image_tag("blonze_icon.png") %><%= i %>位</td>
+        <td><%= rank.name %></td>
+        <td><%= rank.prefectures.count %></td> 
+      </tr>
+    <% else %> 
+      <tr>
+        <td><%= i %>位</td>
+        <td><%= rank.name %></td>
+        <td><%= rank.prefectures.count %></td> 
+      </tr>
+    <% end %>
+  <% end %>
+</table>

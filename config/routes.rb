@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
+  
 # config/routes.rb
   
   resources :bookmarks, only: [:create, :destroy]
@@ -19,9 +20,11 @@ Rails.application.routes.draw do
   resources :poses do 
     collection do
       get :bookmarks
+      get :ranking
     end
       get :search, on: :collection
   end
+  #get 'users/ranking', to: 'users#ranking' 
   root 'top#index'
   #root "poses#index"
   get "up" => "rails/health#show", as: :rails_health_check
