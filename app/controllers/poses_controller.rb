@@ -65,11 +65,13 @@ class PosesController < ApplicationController
 
     def ranking
       @poses = Pose.joins(:bookmarks) # ポーズとブックマークを結合
-                    .select('poses.*, COUNT(bookmarks.id) AS bookmarks_count') # ポーズごとのブックマークの数をカウント
+                    .select('poses.*, COUNT(bookmarks.id) AS bookmarks_count') 
+                    .where(challenge_result: 'complete')
+                    # ポーズごとのブックマークの数をカウント
                     .group('poses.id') # ポーズごとにグループ化
                     .order('bookmarks_count DESC') # ブックマークの数で降順にソート
                     .limit(10) # 上位10件のみ取得
-                    #.includes(:user) # ポーズに関連するユーザー情報を取得（N+1問題を避けるため）
+                    .includes(:user) # ポーズに関連するユーザー情報を取得（N+1問題を避けるため）
     end
     
   end
