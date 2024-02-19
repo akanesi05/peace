@@ -39,9 +39,7 @@ class UsersController < ApplicationController
   end
   
 
-  #def ranking
-    #@bookmark= User.find(Bookmark.group(:user_id).order('count(pose_id) desc').limit(10).pluck(:user_id))
-  #end
+  
 
   private
 
