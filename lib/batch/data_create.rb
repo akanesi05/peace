@@ -1,4 +1,5 @@
 class Batch::DataCreate
+ 
   def self.data_create
     # ユーザーテーブルの全てのユーザーを取得
     User.all.each do |user|
@@ -13,6 +14,7 @@ class Batch::DataCreate
 
       # レコードを保存
       pose_count_record.save
+      
     end
   end
 end
