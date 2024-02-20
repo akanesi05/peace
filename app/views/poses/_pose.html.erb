@@ -19,10 +19,14 @@
             </div>
             <p>
             <%= link_to "もっと見る", pose %>
+            <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
+
             </p>
             <% else %>
             <p>
            <%= link_to "もっと見る", pose %>
+           <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
+
            </p>
             <div class=''>
               <% if current_user.bookmark?(pose) %>
