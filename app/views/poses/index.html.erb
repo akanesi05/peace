@@ -20,6 +20,7 @@
     <% @poses.each do |pose| %>
       <%= render pose %>
     <% end %>
+    <%= paginate @poses, theme: 'bootstrap-5' %>
   </div>
 
 
