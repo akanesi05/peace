@@ -2,9 +2,9 @@ class PosesController < ApplicationController
   def index
     #@poses = Pose.where.not(image: nil).includes(:user).order(created_at: :desc)
     @q = Pose.ransack(params[:q])
-    #@pose = Pose.ransack(params[:q])
-    @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc)#.page(params[:page])
-    #@poses = @pose.result
+  
+    @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
+   
   end
     
   def show
@@ -50,9 +50,9 @@ class PosesController < ApplicationController
   end
 
   def bookmarks
-    #@bookmark_poses = current_user.bookmark_poses.includes(:user).order(created_at: :desc)
+    
     @q = current_user.bookmark_poses.ransack(params[:q])
-    @bookmark_poses = @q.result(distinct: true).includes(:user).order(created_at: :desc)#.page(params[:page])
+    @bookmark_poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
     
   end
   
