@@ -1,5 +1,5 @@
 <header>
-    #<nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+    <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
     <%= image_tag 'logo.png' %>
       <%= link_to '/', class: 'navbar-brand' do %>
        
@@ -34,14 +34,14 @@
           <%= link_to 'ログイン', login_path, class: "nav-link" %>
         </li>
         
-        <%= link_to 'RANKING', ranking_poses_path, class: 'text-black transition hover:text-gray-500/75' %>
+        
         <li class='nav-item'>
           <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
         </li>
 
         <li class='nav-item'>
           
-          <%= link_to 'RANKING', ranking_poses_path, class: 'text-black transition hover:text-gray-500/75' %>
+          <%= link_to 'RANKING', ranking_poses_path, class: 'nav-link' %>
         </li>
 
         <li class='nav-item'>
