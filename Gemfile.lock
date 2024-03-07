@@ -91,6 +91,9 @@ GEM
     aws-sdk-kms (1.76.0)
       aws-sdk-core (~> 3, >= 3.188.0)
       aws-sigv4 (~> 1.1)
+    aws-sdk-rekognition (1.92.0)
+      aws-sdk-core (~> 3, >= 3.188.0)
+      aws-sigv4 (~> 1.1)
     aws-sdk-s3 (1.142.0)
       aws-sdk-core (~> 3, >= 3.189.0)
       aws-sdk-kms (~> 1)
@@ -405,6 +408,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  aws-sdk-rekognition
   aws-sdk-s3
   bootsnap
   bootstrap5-kaminari-views
