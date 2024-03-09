@@ -1,5 +1,17 @@
 <!-- views/poses/ranking.html.erb -->
 
+
+<% @poses.each.with_index(1) do |pose, index| %>
+
+  <div class="card" style="width: 18rem;">
+    <%= image_tag pose.image.to_s, class: "card-img-top"  %>
+    <div class="card-body">
+      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+      
+    </div>
+  </div>
+<% end %>
+
 <div class="p-6">
   <h2 class="text-2xl font-semibold mb-4">ポーズランキング</h2>
 
@@ -9,7 +21,7 @@
         <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">順位</th>
         <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ポーズ名</th>
         <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">ブックマーク数</th>
-        
+        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"></th>
       </tr>
     </thead>
     <tbody>
@@ -18,8 +30,7 @@
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= index %></td>
           <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= pose.name %></td>
           <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= pose.bookmarks_count %></td>
-          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= image_tag pose.image.to_s %></td>
-          
+          <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= image_tag pose.image.to_s, width: "300" %></td>
         </tr>
       <% end %>
     </tbody>
