@@ -30,7 +30,7 @@ class PosesController < ApplicationController
     
    #bucket = 'bucket' # the bucketname without s3://
     #photo  = 'input.jpg'# the name of file
-    img = "/Users/mitsuiakane/Projects/peace/app/assets/images/bbb.jpg"
+    img = "/Users/mitsuiakane/Projects/peace/app/assets/images/ccc.jpg"
     client   = Aws::Rekognition::Client.new(region: ENV['AWS_REGION'],credentials: credentials)
     attrs = {
       image: {
@@ -87,27 +87,62 @@ class PosesController < ApplicationController
       puts "------------"
       puts ""
     end
-    original = MiniMagick::Image.read(File.read(img))
+    #original = MiniMagick::Image.read(File.read(img))
+    image = MiniMagick::Image.open(img) 
+    image_width = image.width
+    image_height = image.height
 
-    gc = MiniMagick::Draw.new
+    image.combine_options do |edit|
+      #b.resize "250x200>"
+      #b.rotate "-90"
+      #edit.fill_opacity(0)
+      # edit.stroke('red')
+      # edit.stroke_width(3)
+      # Draw rectangle
+      # ulx = image.columns * response.face_details.first.bounding_box.left
+      # uly = image.rows * response.face_details.first.bounding_box.top
+      # w = image.columns * response.face_details.first.bounding_box.width
+      # h = image.rows * response.face_details.first.bounding_box.height
+      
 
-    gc.fill_opacity(0)
-    gc.fill('transparent')
-    gc.stroke('red')
-    gc.stroke_width(3)
 
-    # Draw rectangle
-    ulx = original.columns * response.face_details.first.bounding_box.left
-    uly = original.rows * response.face_details.first.bounding_box.top
-    w = original.columns * response.face_details.first.bounding_box.width
-    h = original.rows * response.face_details.first.bounding_box.height
+      rect_x_ratio = response.face_details.first.bounding_box.left
+      rect_y_ratio = response.face_details.first.bounding_box.top
+      rect_width_ratio = response.face_details.first.bounding_box.width
+      rect_height_ratio = response.face_details.first.bounding_box.height
+      
 
-    gc.rectangle(ulx, uly, ulx + w, uly + h)
-    gc.draw(original)
+      
+      edit.fill('#ffffff')
+      rect_x = image_width * rect_x_ratio
+      rect_y = image_height * rect_y_ratio
+      rect_width = rect_x + image_width * rect_width_ratio
+      rect_height = rect_y + image_height * rect_height_ratio
 
-    # new_image = original.blur_image(0.0, 10.0)
-    original.write("/Users/mitsuiakane/Projects/peace/app/assets/images/result.jpg")
-    #コピペここまで
+      # edit.rectangle(ulx, uly, ulx + w, uly + h)
+      # edit.draw(image)
+      edit.draw("rectangle #{rect_x},#{rect_y},#{rect_width},#{rect_height}")
+    end # the command gets executed
+    image.write("/Users/mitsuiakane/Projects/peace/app/assets/images/result.jpg")
+    # gc = MiniMagick::Draw.new
+
+    # gc.fill_opacity(0)
+    # gc.fill('transparent')
+    # gc.stroke('red')
+    # gc.stroke_width(3)
+
+    # # Draw rectangle
+    # ulx = original.columns * response.face_details.first.bounding_box.left
+    # uly = original.rows * response.face_details.first.bounding_box.top
+    # w = original.columns * response.face_details.first.bounding_box.width
+    # h = original.rows * response.face_details.first.bounding_box.height
+
+    # gc.rectangle(ulx, uly, ulx + w, uly + h)
+    # gc.draw(original)
+
+    # # new_image = original.blur_image(0.0, 10.0)
+    # original.write("/Users/mitsuiakane/Projects/peace/app/assets/images/result.jpg")
+    # #コピペここまで
     if @pose.save
       redirect_to @pose, notice: 'Pose was successfully created.'
     else
