@@ -21,6 +21,6 @@ before_action :set_user, only: %i[edit update]
   end
   
   def user_params
-      params.require(:user).permit(:email, :name, :avatar, :avatar_cache)
+      params.require(:user).permit(:email, :name, :avatar, :avatar_cache,:favorite_genre)
   end
 end

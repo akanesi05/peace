@@ -12,7 +12,11 @@
           <th scope="row"><%= User.human_attribute_name(:full_name) %></th>
           <td><%= current_user.decorate.full_name %></td>
         </tr>
-
+        
+         <tr>
+          <th scope="row"><%= User.human_attribute_name(:favorite_genre) %></th>
+          <td><%= current_user.favorite_genre %></td>
+        </tr>
         
         <tr>
           <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
