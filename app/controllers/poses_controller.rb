@@ -123,7 +123,7 @@ class PosesController < ApplicationController
       # edit.draw(image)
       edit.draw("rectangle #{rect_x},#{rect_y},#{rect_width},#{rect_height}")
     end # the command gets executed
-    image.write("/Users/mitsuiakane/Projects/peace/app/assets/images/result.jpg")
+    image.write("./app/assets/images/result.jpg")
     # gc = MiniMagick::Draw.new
 
     # gc.fill_opacity(0)
