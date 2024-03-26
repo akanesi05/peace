@@ -30,7 +30,7 @@ class PosesController < ApplicationController
     
    #bucket = 'bucket' # the bucketname without s3://
     #photo  = 'input.jpg'# the name of file
-    img = "/Users/mitsuiakane/Projects/peace/app/assets/images/ccc.jpg"
+    img = "./app/assets/images/ccc.jpg"
     client   = Aws::Rekognition::Client.new(region: ENV['AWS_REGION'],credentials: credentials)
     attrs = {
       image: {
