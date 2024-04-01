@@ -6,7 +6,5 @@ class TopController < ApplicationController
   def puraibasi
   end
 
-  def kiyaku
-  end
   
 end
