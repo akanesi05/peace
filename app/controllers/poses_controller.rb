@@ -20,6 +20,12 @@ class PosesController < ApplicationController
     
   def create
     @pose = current_user.poses.build(pose_params)
+    unless @pose.save
+      render :new
+    end
+
+    image_path = @pose.image.current_path
+
     #公式ドキュメントコピペここからhttps://docs.aws.amazon.com/ja_jp/rekognition/latest/dg/faces-detect-images.html
     require 'aws-sdk-rekognition'
     credentials = Aws::Credentials.new(
@@ -29,14 +35,14 @@ class PosesController < ApplicationController
     )
     
    
-    img = "./app/assets/images/aaa.jpg"
+    # img = "./app/assets/images/aaa.jpg"
     client   = Aws::Rekognition::Client.new(region: ENV['AWS_REGION'],credentials: credentials)
     attrs = {
       image: {
-        bytes: File.read(img)
+        bytes: File.read(image_path)
       }
     }
-    image = MiniMagick::Image.open(img) 
+    image = MiniMagick::Image.open(image_path)
     image_width = image.width
     image_height = image.height
 
@@ -71,7 +77,14 @@ class PosesController < ApplicationController
   
     end
 
+    # 画像を保存する
     image.write("./app/assets/images/result.jpg")
+
+    # 画像をモデルに設定する
+    File.open('./app/assets/images/result.jpg') do |file|
+      @pose.image = file
+    end
+
     #コピペここまで
     if @pose.save
       redirect_to @pose, notice: 'Pose was successfully created.'
