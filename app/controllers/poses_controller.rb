@@ -77,13 +77,17 @@ class PosesController < ApplicationController
   
     end
 
+    random = rand(1..999999)
+
     # 画像を保存する
-    image.write("./app/assets/images/result.jpg")
+    image.write("./app/assets/images/result#{random}.jpg")
 
     # 画像をモデルに設定する
-    File.open('./app/assets/images/result.jpg') do |file|
+    File.open("./app/assets/images/result#{random}.jpg") do |file|
       @pose.image = file
     end
+    #画像を削除する
+    File.delete("./app/assets/images/result#{random}.jpg")
 
     #コピペここまで
     if @pose.save
