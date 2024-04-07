@@ -20,11 +20,25 @@ class PosesController < ApplicationController
     
   def create
     @pose = current_user.poses.build(pose_params)
-    unless @pose.save
-      render :new
-    end
 
-    image_path = @pose.image.current_path
+    tmp_image = pose_params[:image]
+    tmp_image_path = "public/uploads/tmp/#{tmp_image.original_filename}"
+    p "tmp_image---------------"
+    # p tmp_image
+    p "tmp_image.read---------------"
+    # p tmp_image.read
+
+    # p @pose.image.read
+    # tmp_image_path = "public/uploads/tmp/#{tmp_image.original_filename}"
+    p "tmp_image_path---------------" + tmp_image_path
+
+    File.binwrite(tmp_image_path, tmp_image.read)
+
+    # unless @pose.save
+    #   render :new
+    # end
+
+    # image_path = @pose.image.current_path
 
     #公式ドキュメントコピペここからhttps://docs.aws.amazon.com/ja_jp/rekognition/latest/dg/faces-detect-images.html
     require 'aws-sdk-rekognition'
@@ -39,14 +53,14 @@ class PosesController < ApplicationController
     client   = Aws::Rekognition::Client.new(region: ENV['AWS_REGION'],credentials: credentials)
     attrs = {
       image: {
-        bytes: File.read(image_path)
+        bytes: File.read(tmp_image_path)
       }
     }
-    image = MiniMagick::Image.open(image_path)
+    image = MiniMagick::Image.open(tmp_image_path)
     image_width = image.width
     image_height = image.height
 
-    response = client.detect_faces attrs
+    response = client.detect_faces(attrs)
     puts "Detected faces for: "
     response.face_details.each do |face_detail|
       puts "All other attributes:"
@@ -89,7 +103,7 @@ class PosesController < ApplicationController
     #画像を削除する
     File.delete("./app/assets/images/result#{random}.jpg")
 
-    #コピペここまで
+    #AWSドキュメントからの参考ここまで
     if @pose.save
       redirect_to @pose, notice: 'Pose was successfully created.'
     else
