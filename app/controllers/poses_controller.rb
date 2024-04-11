@@ -17,8 +17,12 @@ class PosesController < ApplicationController
   end
 
 
-    
+   #Pose.where('? <= created_at', "2024-04-11").where(user_id:2).count 
   def create
+    pose_count = Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count 
+    if pose_count > 4
+      return render :new
+    end
     @pose = current_user.poses.build(pose_params)
 
     # ファイル名に付ける乱数を生成
