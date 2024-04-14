@@ -51,6 +51,8 @@ gem 'carrierwave', '~> 3.0'
 gem "aws-sdk-s3", require: false
 gem 'fog-aws'
 gem 'pry-rails'
+gem 'pry-doc'
+gem 'pry-byebug'
 gem 'config'
 gem 'dotenv-rails'
 gem 'ransack'

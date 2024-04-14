@@ -19,11 +19,16 @@ class PosesController < ApplicationController
 
    #Pose.where('? <= created_at', "2024-04-11").where(user_id:2).count 
   def create
+    #p "22行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
     pose_count = Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count 
-    if pose_count > 4
-      return render :new
+    if 5 <= pose_count
+      flash.now[:danger] = '1日の投稿上限に達しました'
+      return render :new,status: :unprocessable_entity
     end
     @pose = current_user.poses.build(pose_params)
+    unless @pose.save
+      render :new,status: :unprocessable_entity
+    end
 
     # ファイル名に付ける乱数を生成
     random = rand(1..999999)
@@ -103,6 +108,7 @@ class PosesController < ApplicationController
 
     #AWSドキュメントからの参考ここまで
     if @pose.save
+      #p "100行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
       redirect_to @pose, notice: 'Pose was successfully created.'
     else
       render :new
