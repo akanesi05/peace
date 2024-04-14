@@ -30,29 +30,36 @@ class PosesController < ApplicationController
       render :new,status: :unprocessable_entity
     end
 
-    image_path = @pose.image.current_path
+    # ファイル名に付ける乱数を生成
+    random = rand(1..999999)
+
+    # パラメータから画像を取得し一時ファイルとして保存
+    public_path_base = "public/uploads/tmp/#{random}"
+    tmp_image = pose_params[:image]
+    original_filename = tmp_image.original_filename
+    # tmp_image_extention = tmp_image.content_type
+    tmp_image_path = "#{public_path_base}/tmp_#{original_filename}"
+    Dir.mkdir(public_path_base)
+    File.binwrite(tmp_image_path, tmp_image.read)
 
     #公式ドキュメントコピペここからhttps://docs.aws.amazon.com/ja_jp/rekognition/latest/dg/faces-detect-images.html
     require 'aws-sdk-rekognition'
     credentials = Aws::Credentials.new(
        ENV['AWS_ACCESS_KEY_ID'],
        ENV['AWS_SECRET_ACCESS_KEY']
-
     )
-    
-   
-    # img = "./app/assets/images/aaa.jpg"
+
     client   = Aws::Rekognition::Client.new(region: ENV['AWS_REGION'],credentials: credentials)
     attrs = {
       image: {
-        bytes: File.read(image_path)
+        bytes: File.read(tmp_image_path)
       }
     }
-    image = MiniMagick::Image.open(image_path)
+    image = MiniMagick::Image.open(tmp_image_path)
     image_width = image.width
     image_height = image.height
 
-    response = client.detect_faces attrs
+    response = client.detect_faces(attrs)
     puts "Detected faces for: "
     response.face_details.each do |face_detail|
       puts "All other attributes:"
@@ -83,19 +90,23 @@ class PosesController < ApplicationController
   
     end
 
-    random = rand(1..999999)
 
     # 画像を保存する
-    image.write("./app/assets/images/result#{random}.jpg")
+    result_image_path = "#{public_path_base}/result_#{original_filename}"
+    image.write(result_image_path)
 
     # 画像をモデルに設定する
-    File.open("./app/assets/images/result#{random}.jpg") do |file|
+    File.open(result_image_path) do |file|
       @pose.image = file
     end
-    #画像を削除する
-    File.delete("./app/assets/images/result#{random}.jpg")
+    #一時画像たちを削除する
+    # File.delete(result_image_path)
+    # File.delete(tmp_image_path)
+    # reqiure 'fileutils'
 
-    #コピペここまで
+    FileUtils.rm_r(public_path_base) # ディレクトリを丸ごと削除
+
+    #AWSドキュメントからの参考ここまで
     if @pose.save
       #p "100行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
       redirect_to @pose, notice: 'Pose was successfully created.'
