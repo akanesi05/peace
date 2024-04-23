@@ -109,8 +109,10 @@ class PosesController < ApplicationController
     #AWSドキュメントからの参考ここまで
     if @pose.save
       #p "100行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
-      redirect_to @pose, notice: 'Pose was successfully created.'
+      #redirect_to @pose, notice: 'Pose was successfully created.'
+      redirect_to poses_path, success: t('defaults.flash_message.created', item: Pose.model_name.human)
     else
+      flash.now[:danger] = t('defaults.flash_message.not_created', item: Pose.model_name.human)
       render :new
     end
   end

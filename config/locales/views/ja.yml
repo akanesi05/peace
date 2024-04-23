@@ -4,24 +4,43 @@ ja:
       create: 登録
       submit: 保存
       update: 更新
+      edit: 編集
     label:
       email: メールアドレス
       password: パスワード
+  defaults:
+    flash_message:
+      created: "%{item}を作成しました"
+      not_created: "%{item}を作成出来ませんでした"
+      require_login: ログインしてください
+      updated: 更新しました
+      not_updated: 更新できませんでした
+      deleted: ポーズを削除しました
+
   user_sessions:
     new:
       title: ログイン
       login: ログイン
       to_register_page: 登録ページへ
       password_forget: パスワードをお忘れの方はこちら
+    create:
+      success: ログインしました
+      failure: ログインに失敗しました
+    destroy:
+      success: ログアウトしました
   users:
     new:
       title: ユーザー登録
       to_login_page: ログインページへ
+    create:
+      success: ユーザー登録が完了しました
+      failure: ユーザー登録に失敗しました
   header:
     login: ログイン
     logout: ログアウト
-    board: 掲示板
     pose_index: ポーズ一覧
-    create_board: 掲示板作成
-    bookmark_index: ブックマーク一覧
+    pose_bookmark: ブックマーク一覧
     profile: プロフィール
+    pose_ranking: ランキング
+   
+     
