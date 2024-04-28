@@ -16,6 +16,14 @@ ja:
       updated: 更新しました
       not_updated: 更新できませんでした
       deleted: ポーズを削除しました
+      bookmarks:
+        title: ブックマーク一覧
+        
+  profiles:
+    show:
+      title: プロフィール
+    edit:
+      title: プロフィール編集
 
   user_sessions:
     new:
