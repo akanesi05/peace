@@ -1,10 +1,9 @@
 <header>
-    <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
+  <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
     
-      <%= link_to '/', class: 'navbar-brand' do %>
-       
-       <%= image_tag 'logo.png' %> 
-      <% end %>
+    <%= link_to '/', class: 'navbar-brand' do %>
+      <%= image_tag 'logo.png' %> 
+    <% end %>
       <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent'
         aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
         <span class='navbar-toggler-icon'></span>
@@ -33,9 +32,6 @@
           <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
         </li>
         
-        <li class="nav-item">
-          <%= link_to t('header.login'), login_path, class: "nav-link" %>
-        </li>
         
         
         <li class='nav-item'>
@@ -46,7 +42,7 @@
 
         
 
-        
+        <%if false%>
           <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
             <% end %>
@@ -57,7 +53,8 @@
               <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', data: { turbo_method: :delete } %>
             </div>
           </li>
+        <%end %>
         </ul>
       </div>
-    </nav>
-  </header>
+  </nav>
+</header>
