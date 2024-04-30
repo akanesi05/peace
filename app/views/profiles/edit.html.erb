@@ -10,21 +10,17 @@
           <%= f.email_field :email, class: "form-control" %>
         </div>
         <div class="mb-3">
-          <%= f.label :last_name, class: "form-label" %>
-          <%= f.text_field :last_name, class: "form-control" %>
-        </div>
-        <div class="mb-3">
-          <%= f.label :first_name, class: "form-label" %>
-          <%= f.text_field :first_name, class: "form-control" %>
+          <%= f.label :name, class: "form-label" %>
+          <%= f.text_field :name, class: "form-control" %>
         </div>
 
         
        
        <div class="mb-3">
-        <%= f.label :favorite_genre, "好きな写真のジャンル" %>
-        <%= f.radio_button :favorite_genre, "cute" %> 可愛い
-        <%= f.radio_button :favorite_genre, "cool" %> かっこいい
-        <%= f.radio_button :favorite_genre, "funny" %> 面白い
+        <%= f.label :favorite_genre,class: "form-label"  %>
+        <%= f.radio_button :favorite_genre, "cute" %><%= t('activerecord.attributes.user.genres.cute') %>
+        <%= f.radio_button :favorite_genre, "cool" %><%= t('activerecord.attributes.user.genres.cool') %>
+        <%= f.radio_button :favorite_genre, "funny" %> <%= t('activerecord.attributes.user.genres.funny') %>
         </div>
         <div class="mb-3">
           <%= f.label :avatar %>

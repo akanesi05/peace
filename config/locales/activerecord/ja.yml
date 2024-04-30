@@ -6,10 +6,14 @@ ja:
     attributes:
       user:
         email: メールアドレス
-        last_name: 姓
-        first_name: 名
-        full_name: 氏名
+        name: ニックネーム
         favorite_genre: 好きなジャンル
+        genres: 
+          cute: 可愛い
+          cool: かっこいい
+          funny: 面白い
+
+
         avatar: アバター
         password: パスワード
         password_confirmation: パスワード確認

@@ -9,6 +9,7 @@ ja:
       email: メールアドレス
       password: パスワード
   defaults:
+    delete_confirm: 削除しますか？
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -18,6 +19,12 @@ ja:
       deleted: ポーズを削除しました
       bookmarks:
         title: ブックマーク一覧
+  bookmarks:
+    create:
+      success: ブックマークしました
+    destroy:
+      success: ブックマークを外しました
+
         
   profiles:
     show:
