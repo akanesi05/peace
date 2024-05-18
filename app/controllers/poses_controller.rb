@@ -8,7 +8,7 @@ class PosesController < ApplicationController
   end
     
   def show
-    @pose = Pose.find(params[:id])
+    @pose = Pose.find_by(id: params[:id])
   end
     
   def new
@@ -16,6 +16,13 @@ class PosesController < ApplicationController
     
   end
 
+
+  def confirm
+    @pose = Pose.new(pose_params)
+    # if @pose.invalid?
+    #   render :new
+    # end    
+  end
 
    #Pose.where('? <= created_at', "2024-04-11").where(user_id:2).count 
   def create
