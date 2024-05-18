@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     collection do
       get :bookmarks
       get :ranking
+      post :confirm
     end
       get :search, on: :collection
   end

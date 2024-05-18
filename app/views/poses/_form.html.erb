@@ -2,7 +2,7 @@
   <div class="row">
     <div class="col-md-10 col-lg-8 mx-auto">
       <h1>ポーズ名</h1>
-      <%= form_with model: @pose do |f| %>
+      <%= form_with model: @pose,url: confirm_poses_path(@pose),method:"post",local:true,data: { turbo: false }  do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-3">
           <%= f.label :name, class: "form-label" %>
