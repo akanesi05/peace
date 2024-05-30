@@ -8,7 +8,7 @@ class PosesController < ApplicationController
   end
     
   def show
-    @pose = Pose.find_by(id: params[:id])
+    @pose = Pose.find(params[:id])
   end
     
   def new
@@ -17,12 +17,6 @@ class PosesController < ApplicationController
   end
 
 
-  def confirm
-    @pose = Pose.new(pose_params)
-    # if @pose.invalid?
-    #   render :new
-    # end    
-  end
 
    #Pose.where('? <= created_at', "2024-04-11").where(user_id:2).count 
   def create
@@ -37,6 +31,7 @@ class PosesController < ApplicationController
       render :new,status: :unprocessable_entity
     end
 
+    # ここからメソッド化する
     # ファイル名に付ける乱数を生成
     random = rand(1..999999)
 
@@ -113,7 +108,10 @@ class PosesController < ApplicationController
 
     FileUtils.rm_r(public_path_base) # ディレクトリを丸ごと削除
 
+    #ここまでメソッド化する
     #AWSドキュメントからの参考ここまで
+
+
     if @pose.save
       #p "100行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
       #redirect_to @pose, notice: 'Pose was successfully created.'
@@ -182,6 +180,10 @@ class PosesController < ApplicationController
       params.require(:pose).permit(:name, :image)
   end
 
+  def hide_face
+
+      
+  end
   
   # Only allow a list of trusted parameters through.
   
