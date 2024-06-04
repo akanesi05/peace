@@ -1,6 +1,6 @@
 
 header,footer {background-color: #e47dc1;
-               color: aqua;
+               color:  rgb(27, 25, 146);
 }
 
 body {
@@ -11,19 +11,22 @@ body {
     color: #f227eb;
   }
 
-
+.select {
+       color: rgb(27, 25, 146);   
+}
 .text {
       font-size: 30px;
 
 }
 
 #text {
-     color: aqua;
+     ///color: aqua;
      ///margin-top:100px;
+     color: rgb(27, 25, 146);  
 }
 
 .nav-item {
-    color: aqua;
+    color: rgb(13, 40, 107);
 
 }
 
