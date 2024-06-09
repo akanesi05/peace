@@ -57,5 +57,7 @@ ja:
     pose_bookmark: ブックマーク一覧
     profile: プロフィール
     pose_ranking: ランキング
+  links:
+    back_to_poses: "一覧ページに戻る"
    
      
