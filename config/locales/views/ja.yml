@@ -10,6 +10,7 @@ ja:
       password: パスワード
   defaults:
     delete_confirm: 削除しますか？
+    edit: 編集
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
@@ -24,14 +25,21 @@ ja:
       success: ブックマークしました
     destroy:
       success: ブックマークを外しました
-
-        
+  password_resets:
+    new:
+      title: パスワードリセット申請
+      submit: 送信
+    edit:
+      title: パスワードリセット
+    create:
+      success: パスワードリセット手順を送信しました
+    update:
+      success: パスワードを変更しました        
   profiles:
     show:
       title: プロフィール
     edit:
       title: プロフィール編集
-
   user_sessions:
     new:
       title: ログイン

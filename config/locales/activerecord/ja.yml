@@ -12,8 +12,9 @@ ja:
           cute: 可愛い
           cool: かっこいい
           funny: 面白い
-
-
         avatar: アバター
         password: パスワード
         password_confirmation: パスワード確認
+      pose:
+        name: ポーズ名
+        image: ポーズ画像
