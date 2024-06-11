@@ -67,5 +67,13 @@ ja:
     pose_ranking: ランキング
   links:
     back_to_poses: "一覧ページに戻る"
+  pose:
+    new:
+      title: ポーズ作成
+    show:
+      title: ポーズ詳細
+    index:
+      title: ポーズ一覧
+
    
      
