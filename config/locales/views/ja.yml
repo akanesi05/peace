@@ -8,6 +8,9 @@ ja:
     label:
       email: メールアドレス
       password: パスワード
+  mailer:
+    subject:
+      password_reset: パスワードリセット   
   defaults:
     delete_confirm: 削除しますか？
     edit: 編集
