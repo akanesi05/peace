@@ -11,6 +11,7 @@ ja:
   defaults:
     delete_confirm: 削除しますか？
     edit: 編集
+    password_reset: パスワードリセット
     flash_message:
       created: "%{item}を作成しました"
       not_created: "%{item}を作成出来ませんでした"
