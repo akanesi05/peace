@@ -43,3 +43,13 @@ body {
   color:#f7eef6;
 }
 
+a {
+  color:#54E7F7; /* 好きな色を指定 */
+  text-decoration: none; /* 下線を消す場合はこれも追加 */
+
+}
+
+a:hover {
+  color:#E7F754; /* ホバー時の色を指定 */
+}
+
