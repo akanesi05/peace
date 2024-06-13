@@ -78,6 +78,11 @@ ja:
       title: ポーズ詳細
     index:
       title: ポーズ一覧
-
-   
-     
+    ranking:
+      title: ポーズランキング
+    bookmarks:
+      title: ブックマーク
+    edit:
+      title: ポーズ編集
+  
+  
