@@ -18,6 +18,7 @@
                 <i class="bi bi-trash2-fill"></i>
               <% end %>
             </div>
+            <%if controller.controller_name == "poses"%>
             <p>
             <%= link_to "もっと見る", pose %>
             <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
@@ -29,6 +30,7 @@
            <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
 
            </p>
+           <%end%>
             <div class=''>
               <% if current_user.bookmark?(pose) %>
                 <%= render 'unbookmark', { pose: pose } %>
