@@ -10,9 +10,11 @@
           <% if current_user.own?(pose) %>
             <div class=''>
               <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
+                <%= t('buttons.edit') %>
                 <i class="bi bi-pencil-square"></i>
               <% end %>
               <%= link_to pose_path(pose), id: "button-delete-#{pose.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
+                <%= t('buttons.delete') %>
                 <i class="bi bi-trash2-fill"></i>
               <% end %>
             </div>

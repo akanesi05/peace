@@ -71,6 +71,7 @@ ja:
     pose_ranking: ランキング
   links:
     back_to_poses: "一覧ページに戻る"
+    terms: 利用規約
   pose:
     new:
       title: ポーズ作成
@@ -84,5 +85,8 @@ ja:
       title: ブックマーク
     edit:
       title: ポーズ編集
+  buttons:
+    edit: 編集
+    delete: 削除
   
   
