@@ -18,25 +18,24 @@
                 <i class="bi bi-trash2-fill"></i>
               <% end %>
             </div>
-
-            <% if controller.controller_name == "poses" && controller.action_name != "show" %>
-              <p>
-                <%= link_to "もっと見る", pose %>
-                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
-              </p>
-            <% else %>
-              <p>
-                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
-              </p>
-            <% end %>
-            <div class=''>
-              <% if current_user.bookmark?(pose) %>
-                <%= render 'unbookmark', { pose: pose } %>
-              <% else %>
-                <%= render 'bookmark', { pose: pose } %>
-              <% end %>
-            </div>
           <% end %>
+          <% if controller.controller_name == "poses" && controller.action_name != "show" %>
+            <p>
+              <%= link_to "もっと見る", pose  %>
+              <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'%>
+            </p>
+          <%  else  %>
+            <p>
+              <%= link_to 'Twitter',"https://twitter.com/share?url=#{request.url}", title: 'Twitter',  target: '_blank'  %>
+            </p>
+          <% end %>
+          <div class=''>
+            <% if current_user.bookmark?(pose) %>
+              <%= render 'unbookmark', { pose: pose } %>
+            <% else %>
+              <%= render 'bookmark', { pose: pose } %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
