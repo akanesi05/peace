@@ -11,13 +11,10 @@
   
       <div class='collapse navbar-collapse' id='navbarSupportedContent'>
         <ul class='navbar-nav ms-auto main-nav align-items-center'>
-          <li class='nav-item dropdown dropdown-slide'>
-            
-            <div class='dropdown-menu dropdown-menu-end'>
-             
+          <li class='nav-item dropdown dropdown-slide'>         
+            <div class='dropdown-menu dropdown-menu-end'>         
             </div>
           </li>
-  
           <li class='nav-item'>
           <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
         </li>
@@ -27,26 +24,16 @@
         <li class='nav-item'>
           <%= link_to t('header.profile'), profile_path, class: 'nav-link' %>
         </li>
-         <li class='nav-item'>
-          
+         <li class='nav-item'>       
           <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
-        </li>
-        
-        
-        
+        </li>       
         <li class='nav-item'>
           <%= link_to t('header.logout'), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
         </li>
-
-        
-
-        
-
         <%if false%>
           <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', data: { bs_toggle: 'dropdown' }, aria: { haspopup: 'true', expanded: 'false' }, id: 'header-profile' do %>
-            <% end %>
-            
+            <% end %>          
               <div class='dropdown-menu dropdown-menu-end'>
               <div class='dropdown-item'><%= current_user.decorate.name %></div>
               <div class='dropdown-divider'></div>
