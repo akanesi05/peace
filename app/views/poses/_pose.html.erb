@@ -7,7 +7,7 @@
       <div class="card-body">
         <div class="d-flex column-gap-3">
           <h4 class="card-title"><%= pose.name %></h4>
-          <% if current_user.own?(pose) %>
+          <% if current_user && current_user.own?(pose) %>
             <div class=''>
               <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
                 <%= t('buttons.edit') %>
@@ -30,10 +30,12 @@
             </p>
           <% end %>
           <div class=''>
-            <% if current_user.bookmark?(pose) %>
-              <%= render 'unbookmark', { pose: pose } %>
-            <% else %>
-              <%= render 'bookmark', { pose: pose } %>
+            <% if current_user %>
+              <% if current_user && current_user.bookmark?(pose) %>
+                <%= render 'unbookmark', { pose: pose } %>
+              <% else %>
+                <%= render 'bookmark', { pose: pose } %>
+              <% end %>
             <% end %>
           </div>
         </div>

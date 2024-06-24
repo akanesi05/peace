@@ -1,4 +1,5 @@
 class PosesController < ApplicationController
+  skip_before_action :require_login, only: [:show, :index]
   def index
     #@poses = Pose.where.not(image: nil).includes(:user).order(created_at: :desc)
     @q = Pose.ransack(params[:q])
