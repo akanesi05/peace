@@ -1,12 +1,15 @@
 <h1>ピス卒</h1>
 
 <p>写真を見返すとピースばっかりしてるってことあるよね?ピス卒は、写真を撮るときにどんなポーズをしたらいいかわからないときに、アイデアを教えてくれる楽しいアプリだよ！このアプリがあれば、もうピースばっかりの写真にはならないよ！</p>
-<%= image_tag 'top.jpg', class: 'hoge' %>
 <p>アプリの特徴：</p>
 <ul>
   <li>写真撮影の新しいスタイルを発見: いつもと違うポーズに挑戦してみよう！</li>
   <li>ポーズ提案: 好きなポーズを投稿してみんなに教えられるよ。投稿するときに顔を隠してくれるから恥ずかしくないよ。</li>
 </ul>
-
-
+ <li class='body'>
+    <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
+  </li>
+<%#= image_tag 'top.jpg', class: 'hoge' %>
+<%= render partial: 'poses/pose', locals: { pose: @pose } %>
 <p id="text" class="text mt-5">ピス卒を使って、あなたも今日から写真のポーズ職人になりましょう！</p>
+<%= link_to t('.to_register_page'), new_user_path %>
