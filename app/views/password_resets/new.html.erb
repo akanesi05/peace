@@ -6,7 +6,7 @@
       <%= form_with url: password_resets_path do |f| %>
         <div class="mb-3">
           <%= f.label :email, class: "form-label" %>
-          <%= f.email_field :email, class: 'form-control' %>
+          <%= f.email_field :email, class: 'form-control', maxlength: "300" %>
         </div>
         <%= f.submit t('.submit') , class: "btn btn-primary" %>
       <% end %>

@@ -6,11 +6,11 @@
         <%= form_with url: login_path do |f| %>
           <div class="mb-3">
             <%= f.label :email %>
-            <%= f.email_field :email, class: "form-control" %>
+            <%= f.email_field :email, class: "form-control", maxlength: "300" %>
           </div>
           <div class="mb-3">
             <%= f.label :password %>
-            <%= f.password_field :password, class: "form-control" %>
+            <%= f.password_field :password, class: "form-control", maxlength: "20" %>
           </div>
           <%= f.submit t('.login'), class: "btn btn-primary" %>
         <% end %>
