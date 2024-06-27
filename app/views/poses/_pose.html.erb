@@ -32,9 +32,9 @@
           <div class=''>
             <% if current_user %>
               <% if current_user && current_user.bookmark?(pose) %>
-                <%= render 'unbookmark', { pose: pose } %>
+                <%= render 'poses/unbookmark', { pose: pose } %>
               <% else %>
-                <%= render 'bookmark', { pose: pose } %>
+                <%= render  'poses/bookmark', { pose: pose } %>
               <% end %>
             <% end %>
           </div>
