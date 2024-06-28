@@ -6,14 +6,15 @@
   <li>写真撮影の新しいスタイルを発見: いつもと違うポーズに挑戦してみよう！</li>
   <li>ポーズ提案: 好きなポーズを投稿してみんなに教えられるよ。投稿するときに顔を隠してくれるから恥ずかしくないよ。</li>
 </ul>
- <li class='body'>
-    <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
-  </li>
-<%#= image_tag 'top.jpg', class: 'hoge' %>
 <div id="poses" class="row">
 <% @poses.each do |pose| %>
 <%= render partial: 'poses/pose', locals: { pose: pose } %>
 <% end %>
 </div>
-<p id="text" class="text mt-5">ピス卒を使って、あなたも今日から写真のポーズ職人になりましょう！</p>
-<%= link_to t('.to_register_page'), new_user_path %>
+ <div  id="selected" class= "selected">
+  <%= link_to t('links.index_poses'), poses_path %>
+</div>
+<p id="text" class="text mt-5">ピス卒を使って、今日から写真のポーズ職人になろう！</p>
+<div  id="register" class= "register">
+<%= link_to t('links.to_register_page'), new_user_path %>
+</div>

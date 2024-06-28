@@ -24,8 +24,6 @@ body {
 }
 
 #text {
-     ///color: aqua;
-     ///margin-top:100px;
      color: rgb(27, 25, 146);  
 }
 
@@ -43,13 +41,32 @@ body {
   color:#f7eef6;
 }
 
+
 a {
-  color:#54E7F7; /* 好きな色を指定 */
-  text-decoration: none; /* 下線を消す場合はこれも追加 */
+  color:#54E7F7; 
+  text-decoration: none; 
 
 }
 
 a:hover {
-  color:#E7F754; /* ホバー時の色を指定 */
+  color:#E7F754; 
 }
 
+
+
+.selected a {
+  color: #f227eb; 
+  font-size: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.selected a:hover {
+  color: #00ff00; 
+}
+
+.register a {
+
+color:  rgb(27, 25, 146);
+}

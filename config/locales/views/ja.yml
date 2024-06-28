@@ -71,6 +71,8 @@ ja:
     pose_ranking: ランキング
   links:
     back_to_poses: "一覧ページに戻る"
+    index_poses: "もっと見る"
+    to_register_page: 登録ページへ
     terms: 利用規約
   pose:
     new:
@@ -88,5 +90,5 @@ ja:
   buttons:
     edit: 編集
     delete: 削除
-  
+ 
   
