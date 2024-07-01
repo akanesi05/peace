@@ -33,6 +33,11 @@
               <%#= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
             </p>
           <% end %>
+          <div class="share">
+            <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+               シェアする
+            <% end %>
+         </div>
           <div class=''>
             <% if current_user %>
               <% if current_user && current_user.bookmark?(pose) %>

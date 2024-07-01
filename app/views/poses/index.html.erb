@@ -17,25 +17,10 @@
     </div>
   </div>
 
-<% @poses.each do |pose| %>
-  <div class="pose">
-    <h2><%= link_to pose.name, pose_path(pose) %></h2>
-    <p><%= pose.name %></p>
-    <div class="share">
-      <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-        シェアする
-      <% end %>
-    </div>
-  </div>
-<% end %> 
   <div id="poses" class="row">
     <% @poses.each do |pose| %>
       <%= render pose %>
-      <div class="share">
-      <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-        シェアする
-      <% end %>
-    </div>
+      
     <% end %>
     <%= paginate @poses, theme: 'bootstrap-5' %>
   </div>
