@@ -28,12 +28,6 @@
             <p>
               <%= link_to 'Twitter',"https://twitter.com/share?url=#{request.url}", title: 'Twitter',  target: '_blank'  %>
             </p>
-
-            <div class="twitter">
-          <%= link_to "https://twitter.com/share?url=#{pose_url(@pose)}&text=【2Seeds】%0a%0a#{@pose.name}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-          <i class="fab fa-twitter"></i>
-          <% end %>
-           </div>
           <% end %>
           <div class=''>
             <% if current_user %>
