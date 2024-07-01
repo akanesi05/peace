@@ -22,11 +22,15 @@
           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
             <p>
               <%= link_to "もっと見る", pose  %>
-              <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank'%>
+              <%#= link_to 'Twitter', "https://twitter.com/share?url=https://peace-graduation.com/poses", title: 'Twitter', target: '_blank'%>
+              <%#= link_to 'Twitter',"https://twitter.com/share?url=#https://peace-graduation.com/poses&text=【テスト】%0a%0a#{ pose.name }、シェアさいこう〜", target: '_blank' do %>
+              <%#= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
             </p>
-          <%  else  %>
+           <% else %>
             <p>
-              <%= link_to 'Twitter',"https://twitter.com/share?url=#{request.url}", title: 'Twitter',  target: '_blank'  %>
+              <%#= link_to 'Twitter',"https://twitter.com/share?url=#{request.url}", title: 'Twitter',  target: '_blank'  %>
+              <%#= link_to 'Twitter',"https://twitter.com/share?url=https://peace-graduation.com/poses&text=【テスト】%0a%0a#{ post.name }、シェアさいこう〜", target: '_blank' do %>
+              <%#= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
             </p>
           <% end %>
           <div class=''>
