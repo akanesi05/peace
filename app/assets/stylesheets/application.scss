@@ -70,3 +70,27 @@ a:hover {
 
 color:  rgb(27, 25, 146);
 }
+
+.ranking-item {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.gold {
+  background-color: rgb(237, 234, 62);
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+
+}
+
+.silver {
+  background-color: silver;
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+}
+
+.bronze {
+  background-color: #d08a45; /* 銅色 */
+  font-family: 'Amatic SC', cursive;
+  font-size: 50px;
+}
