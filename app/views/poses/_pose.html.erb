@@ -23,6 +23,10 @@
             <p>
               <%= link_to "もっと見る", pose  %>
             </p>
+          <% else %>
+            <p>
+              <%= link_to "もっと見る", pose  %>
+            </p>
           <% end %>
           <div class="share">
             <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"Check out this pose: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
