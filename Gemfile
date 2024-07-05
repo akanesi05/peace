@@ -62,7 +62,6 @@ gem 'kaminari', "1.2.2"
 gem 'bootstrap5-kaminari-views'
 gem 'aws-sdk-rekognition', require: false #rekognition使うため
 gem "mini_magick"
-#gem "image_processing"
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
