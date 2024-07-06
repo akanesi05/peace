@@ -3,8 +3,7 @@
   <head>
     <title><%= page_title(yield(:title)) %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta property="og:image" content="<%=image_url("logo.png")%>" />
-     <meta property="og:image"
+    <meta property="og:image"
     content="<%= content_for?(:pose_image) ? yield(:pose_image) : image_url("logo.png")%>" />
 
     <%= csrf_meta_tags %>

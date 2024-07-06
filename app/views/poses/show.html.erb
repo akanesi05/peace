@@ -1,4 +1,4 @@
-<% content_for(:pose_image, image_url("result.jpg")) %>
+<% content_for(:pose_image, @pose.image.url) %>
 <% content_for(:title, t('pose.show.title')) %>
 <p style="color: green"><%= notice %></p>
 <%= render @pose %>
