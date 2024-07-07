@@ -88,7 +88,7 @@ ja:
     edit:
       title: ポーズ編集
     check:
-      check_out_this_pose: このポーズをチェック#ピス卒
+      check_out_this_pose: このポーズをチェック#{pose.name}
   buttons:
     edit: 編集
     delete: 削除
