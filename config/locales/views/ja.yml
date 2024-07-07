@@ -87,6 +87,8 @@ ja:
       title: ブックマーク
     edit:
       title: ポーズ編集
+    check:
+      check_out_this_pose: このポーズをチェック#ピス卒
   buttons:
     edit: 編集
     delete: 削除
