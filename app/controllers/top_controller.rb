@@ -5,7 +5,8 @@ class TopController < ApplicationController
     @poses = Pose.all.order("created_at DESC").limit(6)
   end
 
-
+  def ranking
+  end
 
   
 end
