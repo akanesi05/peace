@@ -1,33 +1,25 @@
 <% content_for(:title, t('pose.ranking.title')) %>
 <div class="p-6">
   <h2 class="text-2xl font-semibold mb-4">ポーズランキング</h2>
-
-  <table class="min-w-full divide-y divide-gray-200">
-    <thead>
-      <tr>
-        <th class="px-10 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><div style="margin-right: 15px;">順位</div></th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><div style="margin-right: 15px;">ポーズ名</div></th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><div style="margin-right: 15px;">ブックマーク数</div></th>
-        <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><div style="margin-right: 15px;">ポーズ</div></th>
+  <table class="ranking">
+  <thead>
+    <tr>
+      <th>順位</th>
+      <th>ポーズ名</th>
+      <th>ブックマーク数</th>
+      <th>ポーズ</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @ranked_poses.each do |ranked_pose| %>
+      <tr style="<%= 'background-color: 	#FFEF6C;' if ranked_pose[:rank] == 1 %> <%= 'background-color: #afafb0;' if ranked_pose[:rank] == 2 %> <%= 'background-color: #ffa047;' if ranked_pose[:rank] == 3 %>">
+        <td class="rankinga"><%= ranked_pose[:rank] %>位</td>
+        <td class="rankinga"><%= ranked_pose[:pose].name %></td>
+        <td class="rankinga"><%= ranked_pose[:pose].bookmarks_count %></td>
+        <td class="rankinga"><%= image_tag ranked_pose[:pose].image.to_s, width: "300" %></td>
       </tr>
-    </thead>
-    <tbody>
-      <% @poses.each.with_index(1) do |pose, index| %>
-        <% row_class = case index
-                      when 1 then 'gold'
-                      when 2 then 'silver'
-                      when 3 then 'bronze'
-                      else ''
-                      end %>
-        <tr class="<%= row_class %>">
-     
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= index %>位</td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900"><%= pose.name %></td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= pose.bookmarks_count %></td>
-            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500"><%= image_tag pose.image.to_s, width: "300" %></td>
-         
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+    <% end %>
+  </tbody>
+</table>
 </div>
+

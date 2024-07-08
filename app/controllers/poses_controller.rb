@@ -163,16 +163,25 @@ class PosesController < ApplicationController
     
   end 
  
-  def ranking 
+  def ranking
+    @poses = Pose.left_joins(:bookmarks)
+    .group(:id)
+    .select("poses.*, COUNT(bookmarks.id) AS bookmarks_count")
+    .order('bookmarks_count DESC').limit(3)
+
+      @ranked_poses = []
+      current_rank = 1
+      previous_count = nil
+
+      @poses.each_with_index do |pose, index|
+      if previous_count != pose.bookmarks_count
+      current_rank = index + 1
+      end
+      @ranked_poses << { pose: pose, rank: current_rank }
+      previous_count = pose.bookmarks_count
+      end 
     
-    @poses = Pose.joins(:bookmarks) # ポーズとブックマークを結合
-                  .select('poses.*, COUNT(bookmarks.id) AS bookmarks_count') 
-                  #.where(challenge_result: 'complete')
-                  # ポーズごとのブックマークの数をカウント
-                  .group('poses.id') # ポーズごとにグループ化
-                  .order('bookmarks_count DESC') # ブックマークの数で降順にソート
-                  .limit(3) 
-                  .includes(:user) # ポーズに関連するユーザー情報を取得（N+1問題を避けるため）
+   
   end
   
   private
