@@ -31,7 +31,7 @@
           <% end %>
           <div class="share">
             <%#= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{t('pose.check.check_out_this_pose')}: #{pose.name}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-            <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"このポーズをチェック: #{pose.name}"}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+            <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=#{"このポーズをチェック: "}+#{pose.name}+#{CGI.escape('#'+'ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                シェアする
             <% end %>
          </div>
