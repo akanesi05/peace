@@ -1,5 +1,5 @@
 <% content_for(:title, t('pose.ranking.title')) %>
-<div class="p-6">
+<div class="p-6 content-center">
   <h2 class="text-2xl font-semibold mb-4">ポーズランキング</h2>
   <table class="ranking">
   <thead>
@@ -16,9 +16,12 @@
         <td class="rankinga"><%= ranked_pose[:rank] %>位</td>
         <td class="rankinga"><%= ranked_pose[:pose].name %></td>
         <td class="rankinga"><%= ranked_pose[:pose].bookmarks_count %></td>
-        <td class="rankinga"><%= image_tag ranked_pose[:pose].image.to_s, width: "300" %></td>
+        <td class="rankinga"><%= image_tag ranked_pose[:pose].image.to_s, width: "300", height: "200"  %></td>
       </tr>
     <% end %>
+  
+    
+    
   </tbody>
 </table>
 </div>

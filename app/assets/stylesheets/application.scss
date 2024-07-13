@@ -49,6 +49,11 @@ body {
 a {
   color:#54E7F7; 
   text-decoration: none; 
+  font-size: 15px;
+  white-space: normal;
+  white-space: nowrap; /* テキストを折返さない */
+  overflow: hidden; /* はみ出した部分を隠す */
+  text-overflow: ellipsis; 
 
 }
 
@@ -99,16 +104,17 @@ color:  rgb(27, 25, 146);
   font-size: 50px;
 }
 
-。ranking{
-  font-family: arial;
-  font-size: 24px;
-  margin: 25px;
-  width: 350px;
-  height: 200px;
-  outline: dashed 1px black;
-}
+
 .rankinga{
   font-size: 50px;
   font-family: 'Amatic SC', cursive;
+}
+
+.content-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
 }
 
