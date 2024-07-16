@@ -1,6 +1,9 @@
 class Pose < ApplicationRecord
   belongs_to :user
   has_many :bookmarks, dependent: :destroy
+  has_many :pose_tags, dependent: :destroy
+  has_many :tags, through: :pose_tags
+  has_many :tags, through: :pose_tags
   mount_uploader :image, ImageUploader
   validates :name, presence: true
   validate :image_presence

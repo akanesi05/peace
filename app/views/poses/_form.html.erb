@@ -12,7 +12,12 @@
         <div class="mb-3">
           <%= f.label :image, class: "form-label" %>
           <%= f.file_field :image, class: "form-control" %>
-        </div>       
+        </div> 
+
+         <div>
+          <%= label_tag :tag_name, "タグ（,区切りで入力してください）", style: "display: block" %>
+          <%= text_field_tag :tag_name, tag_name %>
+         </div>      
         <%= f.submit "登録", class: "btn btn-primary" %>
       <% end %>
       
