@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_20_121650) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_16_123030) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,6 +24,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_121650) do
     t.index ["user_id"], name: "index_bookmarks_on_user_id"
   end
 
+  create_table "pose_tags", force: :cascade do |t|
+    t.bigint "pose_id", null: false
+    t.bigint "tag_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["pose_id", "tag_id"], name: "index_pose_tags_on_pose_id_and_tag_id", unique: true
+    t.index ["pose_id"], name: "index_pose_tags_on_pose_id"
+    t.index ["tag_id"], name: "index_pose_tags_on_tag_id"
+  end
+
   create_table "poses", force: :cascade do |t|
     t.string "name"
     t.string "image"
@@ -31,6 +41,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_121650) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_poses_on_user_id"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", force: :cascade do |t|
@@ -52,5 +69,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_20_121650) do
 
   add_foreign_key "bookmarks", "poses"
   add_foreign_key "bookmarks", "users"
+  add_foreign_key "pose_tags", "poses"
+  add_foreign_key "pose_tags", "tags"
   add_foreign_key "poses", "users"
 end

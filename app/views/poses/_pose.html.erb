@@ -46,6 +46,13 @@
           <div class="time">
             <%= pose.created_at.strftime("%Y-%m-%d") %>
           </div>
+          <p>
+             <strong>Tag:</strong>
+              <% pose.tags.each do |tag| %>
+              <%= tag.name %>
+              <% end %>
+           </p>
+</div>
         </div>
       </div>
     </div>

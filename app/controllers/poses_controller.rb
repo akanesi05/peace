@@ -21,6 +21,18 @@ class PosesController < ApplicationController
 
    #Pose.where('? <= created_at', "2024-04-11").where(user_id:2).count 
   def create
+
+    tag_names = params[:tag_name].split(",")
+    # 2. タグ名の配列をタグの配列にする
+    tags = tag_names.map { |tag_name| Tag.find_or_initialize_by(name: tag_name) }
+    # 3. タグのバリデーションを行い、バリデーションエラーがあればPostのエラーに加える
+    tags.each do |tag|
+      if tag.invalid?
+        @tag_name = params[:tag_name]
+        @pose.errors.add(:tags, tag.errors.full_messages.join("\n"))
+        return render :edit, status: :unprocessable_entity
+      end
+    end
     #p "22行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
     pose_count = Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count 
     if 5 <= pose_count
@@ -112,12 +124,13 @@ class PosesController < ApplicationController
     #ここまでメソッド化する
     #AWSドキュメントからの参考ここまで
 
-
+    @pose.tags = tags
     if @pose.save
       #p "100行目の時の件数"+ Pose.where('? <= created_at', Date.today).where(user_id:current_user.id).count.to_s
       #redirect_to @pose, notice: 'Pose was successfully created.'
       redirect_to poses_path, success: t('defaults.flash_message.created', item: Pose.model_name.human)
     else
+      @tag_name = params[:tag_name]
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Pose.model_name.human)
       render :new
     end
