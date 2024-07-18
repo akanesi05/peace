@@ -51,11 +51,16 @@ class PosesController < ApplicationController
     # パラメータから画像を取得し一時ファイルとして保存
     public_path_base = "public/uploads/tmp/#{random}"
     tmp_image = pose_params[:image]
+   if tmp_image.present?
     original_filename = tmp_image.original_filename
     # tmp_image_extention = tmp_image.content_type
     tmp_image_path = "#{public_path_base}/tmp_#{original_filename}"
     Dir.mkdir(public_path_base)
     File.binwrite(tmp_image_path, tmp_image.read)
+   else
+    #flash.now[:danger] = "画像が選択されていません。"  # ここを追加
+   return  
+   end
 
     #公式ドキュメントコピペここからhttps://docs.aws.amazon.com/ja_jp/rekognition/latest/dg/faces-detect-images.html
     require 'aws-sdk-rekognition'
@@ -167,8 +172,9 @@ class PosesController < ApplicationController
   end
   
 
-  def search
+  def search  #候補を出すためのメソッド
     @poses = Pose.where("name like ?", "%#{params[:q]}%")
+    #@poses = Tag.where(name:"%#{params[:q]}%")
     respond_to do |format|
       format.js
     end
