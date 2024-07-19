@@ -14,9 +14,10 @@
           <%= f.file_field :image, class: "form-control" %>
         </div> 
 
-         <div>
-          <%= label_tag :tag_name, "タグ（,区切りで入力してください）", style: "display: block" %>
-          <%= text_field_tag :tag_name, tag_name %>
+         
+         <div class="mb-3">
+          <%= label_tag :tag_name, "タグ（,区切りで入力してください）", class: "form-label" %>
+          <%= text_field_tag :tag_name, tag_name, class: "form-control", style: "width: 100%;" %>
          </div>      
         <%= f.submit "登録", class: "btn btn-primary" %>
       <% end %>
