@@ -1,11 +1,20 @@
 class PosesController < ApplicationController
   skip_before_action :require_login, only: [:show, :index,:ranking]
   def index
-    #@poses = Pose.where.not(image: nil).includes(:user).order(created_at: :desc)
     @q = Pose.ransack(params[:q])
-  
-    @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
-   
+     @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
+    #@poses = Tag.find(params[:q]).poses
+    # 検索ボックスに入力されたタグでポーズを絞り込めるようにする
+    # これを応用
+   #@poses = Tag.find_by(name: "夏").poses.page(params[:page])
+   #@q = Tag.ransack(params[:q])
+   #@tags = @q.result(distinct: true).where.not(image: nil).includes(:pose).order(created_at: :desc).page(params[:page])
+   if params[:q].present? && params[:q][:name_cont].present?
+   @tag = Tag.find_by(name: params[:q][:name_cont]) # タグ名でタグを取得
+   @poses = @tag.poses.page(params[:page]) if @tag # タグが見つかった場合にポーズを取得
+   else
+   @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
+   end
   end
     
   def show
@@ -213,7 +222,7 @@ class PosesController < ApplicationController
 
       
   end
-  
+ 
   # Only allow a list of trusted parameters through.
   
 end
