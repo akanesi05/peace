@@ -2,17 +2,20 @@ class PosesController < ApplicationController
   skip_before_action :require_login, only: [:show, :index,:ranking]
   def index
     @q = Pose.ransack(params[:q])
-     @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
+    @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
     #@poses = Tag.find(params[:q]).poses
     # 検索ボックスに入力されたタグでポーズを絞り込めるようにする
     # これを応用
    #@poses = Tag.find_by(name: "夏").poses.page(params[:page])
    #@q = Tag.ransack(params[:q])
    #@tags = @q.result(distinct: true).where.not(image: nil).includes(:pose).order(created_at: :desc).page(params[:page])
-   if params[:q].present? && params[:q][:name_cont].present?
+   if params[:q].present? && params[:q][:name_cont].present?#フォームに名前が検索されたときにtrueが返ります
    @tag = Tag.find_by(name: params[:q][:name_cont]) # タグ名でタグを取得
-   @poses = @tag.poses.page(params[:page]) if @tag # タグが見つかった場合にポーズを取得
+   @poses = @tag.poses.page(params[:page]) if @tag # タグが見つかった場合にポーズを取得#フォームに入力したタグ名に紐づいている投稿を引っ張ろうとしている。
+   #例夏と書いた投稿があった場合、特に何もしなければ２０件がそのまま出てくる。２０件まるまる表示されるのは鬱陶しい場合がある。そういう時活躍するのがページネーション。
+   #ランサックだとデフォルトで10件取ってくる。(params[:page])
    else
+   #@poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
    @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
    end
   end
