@@ -20,15 +20,17 @@
               <% end %>
             </div>
           <% end %>
-          <% if controller.controller_name == "poses" && controller.action_name != "show" %>
-            <p>
-              <%= link_to "もっと見る", pose  %>
-            </p>
-          <% else %>
-            <p>
-              <%= link_to "もっと見る", pose  %>
-            </p>
-          <% end %>
+           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
+              <p>
+                <%= link_to "もっと見る", pose %>
+                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
+              </p>
+             <% else %>
+                   <p>
+                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
+              </p>
+            <% end %>
+          
           <div class="share">
             <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                シェア
@@ -43,16 +45,13 @@
               <% end %>
             <% end %>
           </div>
-          <div class="time">
-            <%= pose.created_at.strftime("%Y-%m-%d") %>
-          </div>
+          
           <p>
              <strong>Tag:</strong>
               <% pose.tags.each do |tag| %>
-              <%= tag.name %>
+              <span class="tag"><%= tag.name %></span>
               <% end %>
            </p>
-</div>
         </div>
       </div>
     </div>
