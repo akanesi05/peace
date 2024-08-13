@@ -1,14 +1,24 @@
-<header>
-    <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
-      <%= link_to root_path, class: "navbar-brand" do %>
-        <%= image_tag 'logo.png' %> 
-      <% end %>    
-      <button class='navbar-toggler' data-bs-toggle='collapse' data-bs-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
-        <span class="navbar-toggler-icon"></span>
-      </button>  
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto main-nav align-items-center">
-          <li class="nav-item">
+
+  <body>
+  <!-- ヘッダーセクション -->
+  <header>
+    <!-- ロゴを含むリンク -->
+    <%= link_to '/', class: 'navbar-brand' do %>
+      <%= image_tag 'logo.png' %> 
+    <% end %>
+    
+
+    <!-- メニューボタン -->
+   
+  </header>
+
+ 
+
+<input type="checkbox" id="overlay-input" />
+<label for="overlay-input" id="overlay-button"><span></span></label>
+  <div id="overlay">
+    <ul>
+     <li class="nav-item">
             <%= link_to t('header.login'), login_path, class: "nav-link" %>            
           </li>
           <li class='nav-item'>
@@ -17,7 +27,10 @@
           <li class='nav-item'>       
           <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
           </li>     
-        </ul>
-      </div>
-    </nav>
-  </header>
+      
+    </ul>
+  </div>
+</body>
+
+</body>
+
