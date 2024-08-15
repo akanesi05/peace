@@ -20,22 +20,24 @@
               <% end %>
             </div>
           <% end %>
-           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
+          
+            <% if controller.controller_name == "poses" && controller.action_name != "show" %>
               <p>
                 <%= link_to "もっと見る", pose %>
-                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
-              </p>
-             <% else %>
-                   <p>
-                <%= link_to 'Twitter', "https://twitter.com/share?url=#{request.url}", title: 'Twitter', target: '_blank' %>
-              </p>
-            <% end %>
-          
-          <div class="share">
-            <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                シェア
             <% end %>
-         </div>
+              </p>
+            <% else %>
+               <p>
+  
+                 <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                 シェア
+                  <% end %>
+                   <li><i class="bi bi-calendar"></i><%= l pose.created_at, format: :short %></li>
+              </p>
+            <% end %>
+
           <div class=''>
             <% if current_user %>
               <% if current_user && current_user.bookmark?(pose) %>
@@ -45,7 +47,9 @@
               <% end %>
             <% end %>
           </div>
-          
+          <ul class="list-inline">
+          <li><i class="bi bi-person"></i><%= pose.user.decorate.name %></li>
+        </ul>
           <p>
              <strong>Tag:</strong>
               <% pose.tags.each do |tag| %>
