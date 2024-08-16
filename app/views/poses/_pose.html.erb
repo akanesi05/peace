@@ -48,7 +48,7 @@
             <% end %>
           </div>
           <ul class="list-inline">
-          <li><i class="bi bi-person"></i><%= pose.user.decorate.name %></li>
+          <li><i class="bi bi-person"></i><%= link_to pose.user.name, user_path(pose.user) %></li>
         </ul>
           <p>
              <strong>Tag:</strong>
