@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: %i[new create]
+  skip_before_action :require_login, only: %i[new create show]
 
   def index
     @users = User.all
@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @poses= @user.poses.where.not(image: nil).order(created_at: :desc).page(params[:page])
   end
 
   def edit
