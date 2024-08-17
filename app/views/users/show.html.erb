@@ -1,10 +1,10 @@
 <p style="color: green"><%= notice %></p>
 
 <%= render @user %>
-<%= render 'poses/pose' %>
-<div>
-  <%= link_to "Edit this user", edit_user_path(@user) %> |
-  <%= link_to "Back to users", users_path %>
-
-  <%= button_to "Destroy this user", @user, method: :delete %>
+<div id="poses" class="row">
+<% @poses.each do |pose| %>
+<%= render partial: 'poses/pose', locals: { pose: pose } %>
+<% end %>
+<%= paginate @poses, theme: 'bootstrap-5' %>
 </div>
+
