@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
+  post 'guest_login', to: 'user_sessions#guest_login'
+  get 'guest_login', to: 'user_sessions#guest_login'
   #get '/privacy_policy', to: 'static_pages#puraibasi'
   get '/puraibasi', to: 'static_pages#puraibasi'
 # config/routes.rb
