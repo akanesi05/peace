@@ -23,7 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @poses = Pose.where(user_id: @user.id).where.not(image: nil).order(created_at: :desc).page(params[:page])
+    @poses = Pose.where(user_id: @user.id).order(created_at: :desc).page(params[:page])
   end
 
   def edit

@@ -2,7 +2,7 @@ class PosesController < ApplicationController
   skip_before_action :require_login, only: [:show, :index,:ranking]
   def index
     @q = Pose.ransack(params[:q])
-    @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
+    @poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
     #@poses = Tag.find(params[:q]).poses
     # 検索ボックスに入力されたタグでポーズを絞り込めるようにする
     # これを応用
@@ -16,7 +16,7 @@ class PosesController < ApplicationController
    #ランサックだとデフォルトで10件取ってくる。(params[:page])
    else
    #@poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
-   @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
+   @poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
    end
   end
     

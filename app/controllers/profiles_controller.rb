@@ -12,7 +12,10 @@ before_action :set_user, only: %i[edit update]
       end
   end
   
-  def show; end
+  def show
+    #@poses= Pose.where(user_id: current_user.id)
+    @poses=current_user.poses.page(params[:page]).per(6)
+   end
   
     private
   
