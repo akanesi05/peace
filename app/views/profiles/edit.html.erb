@@ -16,12 +16,12 @@
 
         
        
-       <div class="mb-3">
+       <%# <div class="mb-3">
         <%= f.label :favorite_genre,class: "form-label"  %>
-        <%= f.radio_button :favorite_genre, "cute" %><%= t('activerecord.attributes.user.genres.cute') %>
-        <%= f.radio_button :favorite_genre, "cool" %><%= t('activerecord.attributes.user.genres.cool') %>
-        <%= f.radio_button :favorite_genre, "funny" %> <%= t('activerecord.attributes.user.genres.funny') %>
-        </div>
+         <%# <%= f.radio_button :favorite_genre, "cute" %> <%# <%= t('activerecord.attributes.user.genres.cute') %>
+         <%# <%= f.radio_button :favorite_genre, "cool" %> <%# <%= t('activerecord.attributes.user.genres.cool') %>
+         <%# <%= f.radio_button :favorite_genre, "funny" %>  <%# <%= t('activerecord.attributes.user.genres.funny') %>
+        <%#</div> %>
         <div class="mb-3">
           <%= f.label :avatar %>
           <%= f.file_field :avatar, class: 'form-control mb-3', accept: 'image/*' %>
@@ -35,9 +35,7 @@
         </div>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
-      <div class='text-center'>
-        <%= link_to t('.to_login_page'), login_path %>
-      </div>
+      
     </div>
   </div>
 </div>

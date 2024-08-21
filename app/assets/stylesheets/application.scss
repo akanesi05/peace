@@ -34,10 +34,12 @@ body {
 
 .card {
   background: linear-gradient(#d6a1ff ,#5595f7);
+
 }
 
 .card-title{
   color:#f7eef6;
+  white-space: nowrap;
 }
 
 .time{
@@ -209,10 +211,12 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 #overlay {
   height: 100vh;
   width: 100vw;
-  background: #1cd49a;
+  //background: #1cd49a;
+  background: hsl(304, 92%, 69%);
   z-index: 2;
   visibility: hidden;
   position: fixed;
+  z-index: 5;
 }
 #overlay.active {
 
@@ -246,7 +250,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 10px 20px;
-  background-color: #f8f9fa; /* 背景色 */
+  background-color: #f8f9fa; 
 }
 
 .logo-container {
@@ -260,3 +264,37 @@ header {
 #overlay-button {
   cursor: pointer;
 }
+
+.post-tags{
+  margin-top: 0.5em;
+  //white-space: nowrap; 
+  //margin-top: auto;
+  //z-index: 4;
+  //word-break: break-all;
+}
+
+ .tag{
+  word-break: break-all;
+//   display: inline-block; /* タグをインラインブロックにして、スタイルを適用しやすくする */
+//   margin-right: 0.5em; /* 各タグの間に右側の余白を追加 */
+//   padding: 0.2em 0.5em; /* タグに内側の余白を追加 */
+  background-color: #babdd5; /* 背景色を設定 */
+  border-radius: 15px; /* 角を丸める */
+  font-size: 0.775em; /* フォントサイズを少し小さく */
+   color: #333; /* テキストの色を設定 */
+//   white-space: nowrap; 
+  z-index:  4;
+
+  white-space: normal;
+ }
+
+.created{
+  white-space: nowrap; 
+  font-size: 0.775em;
+  position: absolute; /* 絶対位置を設定 */
+  bottom: 0; /* 下に配置 */
+  right: 0; /* 左に配置 */
+}
+
+
+

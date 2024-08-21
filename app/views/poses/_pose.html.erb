@@ -3,11 +3,16 @@
   <div id="pose-id-<%= pose.id %>">
     <div class="card">
       <%= link_to pose do %>
-        <%= image_tag pose.image_url, class: "card-img-top", width: "300" %>
+        <%= image_tag pose.image_url, class: "card-img-top", width: "300", height:"500"  %>
       <% end %>
       <div class="card-body">
-        <div class="d-flex column-gap-3">
+        <div class="d-flex column-gap-2">
           <h4 class="card-title"><%= pose.name %></h4>
+            <p class="post-tags">
+              <% pose.tags.each do |tag| %>
+              <span class="tag"><%= tag.name %></span>
+              <% end %>
+           </p>
           <% if current_user && current_user.own?(pose) %>
             <div class=''>
               <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
@@ -26,18 +31,30 @@
                 <%= link_to "もっと見る", pose %>
                 <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                シェア
+                </p>
             <% end %>
-              </p>
+              
             <% else %>
                <p>
   
                  <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                  シェア
                   <% end %>
-                   <li><i class="bi bi-calendar"></i><%= l pose.created_at, format: :short %></li>
+                  <p class="created">
+                   <%= l pose.created_at, format: :short %></li>
+                   </p>
+                   <%#= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
+                     <%#>= image_tag 'sample2.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
+                     <%# <% if current_user %>
+                      <%#= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
+                          <%# else %>
+                      <%#= image_tag 'sample2.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
+                    <%# end %> 
+              
               </p>
             <% end %>
-
+           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
+           <% end %>
           <div class=''>
             <% if current_user %>
               <% if current_user && current_user.bookmark?(pose) %>
@@ -48,14 +65,15 @@
             <% end %>
           </div>
           <ul class="list-inline">
-          <li><i class="bi bi-person"></i><%= link_to pose.user.name, user_path(pose.user) %></li>
+          <%= link_to pose.user.name, user_path(pose.user) %></li>
         </ul>
-          <p>
-             <strong>Tag:</strong>
-              <% pose.tags.each do |tag| %>
-              <span class="tag"><%= tag.name %></span>
-              <% end %>
-           </p>
+        <% if current_user %>
+            <%= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
+        <% else %>
+            <%= image_tag 'sample2.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
+        <% end %>
+  
+        
         </div>
       </div>
     </div>
