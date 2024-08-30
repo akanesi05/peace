@@ -1,3 +1,5 @@
 default_url_options:
   protcol: 'https'
-  host: 'peace-4ap7.onrender.com'
+  host: 'peace-graduation.com'
+sorcery:
+    google_callback_url: 'https://peace-graduation.com/oauth/callback?provider=google'
