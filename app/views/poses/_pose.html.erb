@@ -7,10 +7,10 @@
       <% end %>
       <div class="card-body">
         <div class="d-flex column-gap-2">
-          <h4 class="card-title"><%= pose.name %></h4>
+          <h4 class="card-title"><%= link_to pose.name, pose %></h4>
             <p class="post-tags">
               <% pose.tags.each do |tag| %>
-              <span class="tag"><%= tag.name %></span>
+              <span class="tag"></span>
               <% end %>
            </p>
           <% if current_user && current_user.own?(pose) %>
@@ -28,7 +28,7 @@
           
             <% if controller.controller_name == "poses" && controller.action_name != "show" %>
               <p>
-                <%= link_to "もっと見る", pose %>
+              
                 <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                シェア
                 </p>
