@@ -1,20 +1,21 @@
-class Batch::DataCreate
- 
-  def self.data_create
-    # ユーザーテーブルの全てのユーザーを取得
-    User.all.each do |user|
-      # ユーザーごとのポーズの数をカウント
-      pose_count = user.poses.count
+# frozen_string_literal: true
 
-      # PoseCountテーブルからuser_idが一致するレコードを取得または新規作成
-      
+module Batch
+  class DataCreate
+    def self.data_create
+      # ユーザーテーブルの全てのユーザーを取得
+      User.all.each do |user|
+        # ユーザーごとのポーズの数をカウント
+        pose_count = user.poses.count
 
-      # ポーズの数をレコードにセット
-      pose_count_record.pose_count = pose_count
+        # PoseCountテーブルからuser_idが一致するレコードを取得または新規作成
 
-      # レコードを保存
-      pose_count_record.save
-      
+        # ポーズの数をレコードにセット
+        pose_count_record.pose_count = pose_count
+
+        # レコードを保存
+        pose_count_record.save
+      end
     end
   end
 end

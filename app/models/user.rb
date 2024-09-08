@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   authenticates_with_sorcery!
   has_many :poses
@@ -22,7 +24,6 @@ class User < ApplicationRecord
   def unbookmark(pose)
     bookmark_poses.destroy(pose)
   end
-
 
   def bookmark?(pose)
     bookmark_poses.include?(pose)

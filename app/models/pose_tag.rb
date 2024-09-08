@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PoseTag < ApplicationRecord
   belongs_to :pose
   belongs_to :tag

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create show]
 
@@ -9,8 +11,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  
-  
   def create
     @user = User.new(user_params)
     if @user.save
@@ -29,9 +29,6 @@ class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
   end
-  
-
-  
 
   private
 
