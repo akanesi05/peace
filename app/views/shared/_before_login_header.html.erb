@@ -27,6 +27,7 @@
           <li class='nav-item'>       
           <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
           </li>    
+          <%= link_to 'Login with Google', auth_at_provider_path(provider: :google) %>
           
     </ul>
   </div>

@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password]
+Rails.application.config.sorcery.submodules = [:reset_password, :external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -67,7 +67,11 @@ Rails.application.config.sorcery.configure do |config|
 
   # Will register the time of last user logout, every logout.
   # Default: `true`
-  #
+  Rails.application.config.sorcery.submodules = [:external]
+
+  Rails.application.config.sorcery.configure do |config|
+
+    config.external_providers = %i[google]
   # config.register_logout_time =
 
   # Will register the time of last user action, every action.
@@ -152,7 +156,20 @@ Rails.application.config.sorcery.configure do |config|
   # config.wechat.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=wechat"
   #
   # For Auth0, site is required and should match the domain provided by Auth0.
-  #
+    config.google.key = Rails.application.credentials.dig(:google, :google_client_id)
+    config.google.secret = Rails.application.credentials.dig(:google, :google_client_secret)
+  #API設定で承認済みのリダイレクトURIとして登録したurlを設定
+    #config.google.callback_url = 'http://localhost:3000/oauth/callback?provider=google'
+    config.google.callback_url = Settings.sorcery[:google_callback_url]
+
+    
+  #外部サービスから取得したユーザー情報をUserモデルの指定した属性にマッピング
+    config.google.user_info_mapping = {:email => "email", :name => "name"}
+end
+
+     config.user_config do |user|
+    #外部サービスとの認証情報を保存するモデルを指定
+        user.authentications_class = Authentication
   # config.auth0.key = ""
   # config.auth0.secret = ""
   # config.auth0.callback_url = "https://0.0.0.0:3000/oauth/callback?provider=auth0"
@@ -401,7 +418,7 @@ Rails.application.config.sorcery.configure do |config|
     # REQUIRED:
     # Password reset mailer class.
     # Default: `nil`
-    #
+    
      user.reset_password_mailer = UserMailer
 
     # Reset password email method on your mailer class.
@@ -564,4 +581,5 @@ Rails.application.config.sorcery.configure do |config|
   # This line must come after the 'user config' block.
   # Define which model authenticates with sorcery.
   config.user_class = "User"
+end
 end
