@@ -53,7 +53,7 @@ class PosesController < ApplicationController
     end
     @pose = current_user.poses.build(pose_params)
     unless @pose.save
-      render :new,status: :unprocessable_entity
+      return render :new,status: :unprocessable_entity
     end
 
     # ここからメソッド化する
@@ -149,7 +149,7 @@ class PosesController < ApplicationController
     else
       @tag_name = params[:tag_name]
       flash.now[:danger] = t('defaults.flash_message.not_created', item: Pose.model_name.human)
-      render :new
+      return render :new
     end
   end
     
