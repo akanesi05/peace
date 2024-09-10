@@ -223,9 +223,6 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
   position: fixed;
   z-index: 5;
 }
-#overlay.active {
-
-}
 #overlay ul {
   display: flex;
   justify-content: center;
