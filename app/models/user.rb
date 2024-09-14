@@ -23,7 +23,6 @@ class User < ApplicationRecord
     bookmark_poses.destroy(pose)
   end
 
-
   def bookmark?(pose)
     bookmark_poses.include?(pose)
   end

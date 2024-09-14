@@ -3,7 +3,7 @@ class CreatePoses < ActiveRecord::Migration[7.1]
     create_table :poses do |t|
       t.string :name
       t.string :image
-      
+
       t.references :user, null: false, foreign_key: true
 
       t.timestamps
