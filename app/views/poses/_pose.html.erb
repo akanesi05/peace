@@ -1,4 +1,3 @@
-<%#= content_for(:pose_image, image_url("result.jpg")) %>
 <div class="col-sm-12 col-lg-4 mb-3">
   <div id="pose-id-<%= pose.id %>">
     <div class="card">
@@ -43,14 +42,7 @@
                   <p class="created">
                    <%= l pose.created_at, format: :short %></li>
                    </p>
-                   <%#= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
-                     <%#>= image_tag 'sample2.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
-                     <%# <% if current_user %>
-                      <%#= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
-                          <%# else %>
-                      <%#= image_tag 'sample2.jpg', class: 'rounded-circle mr15', width: '40', height: '40' %>
-                    <%# end %> 
-              
+                  
               </p>
             <% end %>
            <% if controller.controller_name == "poses" && controller.action_name != "show" %>
