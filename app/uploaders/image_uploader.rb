@@ -4,7 +4,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  
+
   # storage :fog
   if Rails.env.production?
     storage :fog # 本番環境ではfogを使用
@@ -18,12 +18,12 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
-  
 
   def extension_allowlist
     %w[jpg jpeg gif png]
   end
-  #def default_url(*args)
+
+  # def default_url(*args)
   #   # For Rails 3.1+ asset pipeline compatibility:
   #   # ActionController::Base.helpers.asset_path("fallback/" + [version_name, "default.png"].compact.join('_'))
   #
