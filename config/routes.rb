@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   delete 'logout', to: 'user_sessions#destroy'
   resources :sessions, only: [:new, :create, :destroy]
-  #get '/privacy_policy', to: 'static_pages#puraibasi'
-  get '/puraibasi', to: 'static_pages#puraibasi'
+  get '/privacy', to: 'static_pages#index'
+  #get '/puraibasi', to: 'static_pages#puraibasi'
 # config/routes.rb
   
   resources :bookmarks, only: [:create, :destroy]
