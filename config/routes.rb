@@ -11,7 +11,10 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :sessions, only: [:new, :create, :destroy]
-  get '/puraibasi', to: 'static_pages#puraibasi'
+
+  get '/privacy', to: 'static_pages#index'
+  #get '/puraibasi', to: 'static_pages#puraibasi'
+# config/routes.rb
 
   
   resources :bookmarks, only: [:create, :destroy]
