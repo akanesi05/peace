@@ -3,7 +3,7 @@ Rails.application.config.sorcery.submodules = [:reset_password]
 
 Rails.application.config.sorcery.configure do |config|
 
- 
+
   config.user_config do |user|
    
     
@@ -38,8 +38,10 @@ Rails.application.config.sorcery.configure do |config|
 
    
 
+
     
      user.reset_password_mailer = UserMailer
+
 
    
    
@@ -67,6 +69,8 @@ Rails.application.config.sorcery.configure do |config|
     
   end
 
+
  
   config.user_class = "User"
+
 end

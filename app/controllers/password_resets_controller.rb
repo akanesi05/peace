@@ -2,8 +2,7 @@ class PasswordResetsController < ApplicationController
   skip_before_action :require_login
 
   def new; end
-  
-  
+
   def create
     @user = User.find_by(email: params[:email])
     @user&.deliver_reset_password_instructions!
@@ -31,5 +30,4 @@ class PasswordResetsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
 end

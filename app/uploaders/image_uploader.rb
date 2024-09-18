@@ -1,5 +1,5 @@
 class ImageUploader < CarrierWave::Uploader::Base
-  
+
   if Rails.env.production?
     storage :fog # 本番環境ではfogを使用
   else
@@ -11,12 +11,11 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
 
-  
 
   def extension_allowlist
     %w[jpg jpeg gif png]
   end
-  
+
   def size_range
     1..300.kilobytes
   end

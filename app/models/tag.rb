@@ -6,4 +6,5 @@ class Tag < ApplicationRecord
         ["created_at", "id", "id_value", "name", "updated_at"]
     end
     
+
 end
