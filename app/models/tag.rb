@@ -4,6 +4,7 @@ class Tag < ApplicationRecord
     validates :name, length: { in: 1..10 }, uniqueness: true
     def self.ransackable_attributes(auth_object = nil)
         ["created_at", "id", "id_value", "name", "updated_at"]
-      end
+    end
     
+
 end

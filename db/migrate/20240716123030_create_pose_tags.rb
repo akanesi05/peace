@@ -6,6 +6,6 @@ class CreatePoseTags < ActiveRecord::Migration[7.1]
 
       t.timestamps
     end
-    add_index :pose_tags, [:pose_id, :tag_id], unique: true
+    add_index :pose_tags, %i[pose_id tag_id], unique: true
   end
 end
