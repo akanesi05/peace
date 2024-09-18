@@ -3,21 +3,15 @@ class PosesController < ApplicationController
   def index
     @q = Pose.ransack(params[:q])
     @poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
-    # @poses = Tag.find(params[:q]).poses
-    # 検索ボックスに入力されたタグでポーズを絞り込めるようにする
-    # これを応用
-    # @poses = Tag.find_by(name: "夏").poses.page(params[:page])
-    # @q = Tag.ransack(params[:q])
-    # @tags = @q.result(distinct: true).where.not(image: nil).includes(:pose).order(created_at: :desc).page(params[:page])
-    if params[:q].present? && params[:q][:name_cont].present? # フォームに名前が検索されたときにtrueが返ります
-      @tag = Tag.find_by(name: params[:q][:name_cont]) # タグ名でタグを取得
-      @poses = @tag.poses.page(params[:page]) if @tag # タグが見つかった場合にポーズを取得#フォームに入力したタグ名に紐づいている投稿を引っ張ろうとしている。
-    # 例夏と書いた投稿があった場合、特に何もしなければ２０件がそのまま出てくる。２０件まるまる表示されるのは鬱陶しい場合がある。そういう時活躍するのがページネーション。
-    # ランサックだとデフォルトで10件取ってくる。(params[:page])
-    else
-      # @poses = @q.result(distinct: true).where.not(image: nil).includes(:user).order(created_at: :desc).page(params[:page])
-      @poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
-    end
+
+   if params[:q].present? && params[:q][:name_cont].present?#フォームに名前が検索されたときにtrueが返ります
+   @tag = Tag.find_by(name: params[:q][:name_cont]) # タグ名でタグを取得
+   @poses = @tag.poses.page(params[:page]) if @tag # タグが見つかった場合にポーズを取得#フォームに入力したタグ名に紐づいている投稿を引っ張ろうとしている。
+   #例夏と書いた投稿があった場合、特に何もしなければ２０件がそのまま出てくる。２０件まるまる表示されるのは鬱陶しい場合がある。そういう時活躍するのがページネーション。
+   #ランサックだとデフォルトで10件取ってくる。(params[:page])
+   else
+   @poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
+   end
   end
 
   def show
@@ -33,7 +27,7 @@ class PosesController < ApplicationController
     tag_names = params[:tag_name].split(',')
     # 2. タグ名の配列をタグの配列にする
     tags = tag_names.map { |tag_name| Tag.find_or_initialize_by(name: tag_name) }
-    # 3. タグのバリデーションを行い、バリデーションエラーがあればPostのエラーに加える
+    # 3. タグのバリデーションを行い、バリデーションエラーがあればPosetのエラーに加える
     tags.each do |tag|
       next unless tag.invalid?
 
@@ -118,10 +112,7 @@ class PosesController < ApplicationController
     File.open(result_image_path) do |file|
       @pose.image = file
     end
-    # 一時画像たちを削除する
-    # File.delete(result_image_path)
-    # File.delete(tmp_image_path)
-    # reqiure 'fileutils'
+
 
     FileUtils.rm_r(public_path_base) # ディレクトリを丸ごと削除
 
@@ -166,9 +157,10 @@ class PosesController < ApplicationController
     @bookmark_poses = @q.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
-  def search # 候補を出すためのメソッド
-    @poses = Pose.where('name like ?', "%#{params[:q]}%")
-    # @poses = Tag.where(name:"%#{params[:q]}%")
+
+  def search  #候補を出すためのメソッド
+    @poses = Pose.where("name like ?", "%#{params[:q]}%")
+
     respond_to do |format|
       format.js
     end
@@ -197,7 +189,5 @@ class PosesController < ApplicationController
     params.require(:pose).permit(:name, :image)
   end
 
-  def hide_face; end
 
-  # Only allow a list of trusted parameters through.
 end
