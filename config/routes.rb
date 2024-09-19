@@ -1,10 +1,8 @@
 Rails.application.routes.draw do
   resources :tags
-  mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
-
-  get 'sessions/new'
-  get 'sessions/create'
-  get 'sessions/destroy'
+  mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
+  
+  
   resources :users, only: %i[new create show edit]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
