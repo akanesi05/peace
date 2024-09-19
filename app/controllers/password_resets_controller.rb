@@ -2,13 +2,11 @@ class PasswordResetsController < ApplicationController
   skip_before_action :require_login
 
   def new; end
-  
-  
+
   def create
     @user = User.find_by(email: params[:email])
     @user&.deliver_reset_password_instructions!
-    # 「存在しないメールアドレスです」という旨の文言を表示すると、逆に存在するメールアドレスを特定されてしまうため、
-    # あえて成功時のメッセージを送信させている
+    
     redirect_to login_path, success: t('.success')
   end
 
@@ -32,5 +30,4 @@ class PasswordResetsController < ApplicationController
       render :edit, status: :unprocessable_entity
     end
   end
-  
 end
