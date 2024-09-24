@@ -1,5 +1,5 @@
 
- <body>
+ 
   
   <header>
    
@@ -8,7 +8,25 @@
     <% end %>
     
 
-    
+     <ul class="menu">
+       <li class='list'>
+          <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
+          </li>
+           <li class='list'>
+          <%= link_to t('header.pose_bookmark'), bookmarks_poses_path, class: 'nav-link' %>
+        </li>
+        <li class='list'>
+          <%= link_to t('header.profile'), profile_path, class: 'nav-link' %>
+        </li>
+         <li class='list'>       
+          <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
+        </li>       
+        <li class='list'>
+          <%= link_to t('header.logout'), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
+        </li>
+      
+    </ul>
+
    
   </header>
 
@@ -36,7 +54,7 @@
       
     </ul>
   </div>
-</body>
 
-</body>
+   
+
 

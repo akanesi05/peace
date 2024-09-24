@@ -1,14 +1,27 @@
 
   <body>
   <header>
-    
+    <div class= "header-logo">
+   <div> 
     <%= link_to '/', class: 'navbar-brand' do %>
       <%= image_tag 'logo.png' %> 
     <% end %>
-    
-
-    
-   
+   </div>
+<div class="header-menu">
+    <ul class="menu">
+     <li class="list">
+            <%= link_to t('header.login'), login_path, class: "nav-link" %>            
+          </li>
+          <li class='list'>
+          <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
+          </li>
+          <li class='list'>       
+          <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
+        </li>    
+          
+    </ul>
+</div>
+</div>
   </header>
 
  
