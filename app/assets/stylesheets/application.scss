@@ -2,6 +2,11 @@ header,footer {background-color: #e47dc1;
                color:  rgb(27, 25, 146);
 }
 
+.container {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
 body {
     background-color: #f7eef6;
     font-family: "DotGothic16", sans-serif;
@@ -125,8 +130,59 @@ color:  rgb(27, 25, 146);
 }
 
 //トップページ
+.wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 12px 20px;
+}
+header {
+  display: flex;
+  align-items: center;
+  
+ 
+}
+.header-logo{
+  display: flex;
+  justify-content: space-between;
+}
+.header-menu{
+  display: flex;
+  gap: 24px;
+  position: absolute;
+  right:  100px;
+}
+
+.menu {
+  display: flex;
+  margin-right: 24px;
+}
+.list{
+  margin-right: 24px;
+  flex-direction: row-reverse;
+}
+.nav-item{
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 970px) {
+  .menu {
+    display: none; 
+  }
+ 
+}
+@media screen and (max-width: 969px) {
+ 
+  #overlay-button  {
+    display: block;
+  }
+  
+}
+.navbar-brand {
+  display: block; 
+  padding: 10px 5px; 
+}
 body {
-  background:  #f7eef6;;
+  background:  #f7eef6;
   margin: 0;
   font-family: "DotGothic16", sans-serif;
   width: 100vw;
@@ -152,6 +208,7 @@ body {
   }
 }
 #overlay-button {
+  display: none;
   position: absolute;
   right: 2em;
   top: 3em;
@@ -247,13 +304,7 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 
 
 
-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 20px;
-  background-color: #f8f9fa; 
-}
+
 
 .logo-container {
   flex: 1;
@@ -267,24 +318,21 @@ header {
   cursor: pointer;
 }
 
+
+
+
 .post-tags{
   margin-top: 0.5em;
-  //white-space: nowrap; 
-  //margin-top: auto;
-  //z-index: 4;
-  //word-break: break-all;
 }
 
  .tag{
   word-break: break-all;
-//   display: inline-block; /* タグをインラインブロックにして、スタイルを適用しやすくする */
-//   margin-right: 0.5em; /* 各タグの間に右側の余白を追加 */
-//   padding: 0.2em 0.5em; /* タグに内側の余白を追加 */
-  background-color: #babdd5; /* 背景色を設定 */
-  border-radius: 15px; /* 角を丸める */
-  font-size: 0.775em; /* フォントサイズを少し小さく */
-   color: #333; /* テキストの色を設定 */
-//   white-space: nowrap; 
+
+  background-color: #babdd5; 
+  border-radius: 15px; 
+  font-size: 0.775em; 
+   color: #333; 
+
   z-index:  4;
 
   white-space: normal;
@@ -293,9 +341,9 @@ header {
 .created{
   white-space: nowrap; 
   font-size: 0.775em;
-  position: absolute; /* 絶対位置を設定 */
-  bottom: 0; /* 下に配置 */
-  right: 0; /* 左に配置 */
+  position: absolute; 
+  bottom: 0; 
+  right: 0; 
 }
 
 
