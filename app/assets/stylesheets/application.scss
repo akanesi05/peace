@@ -164,11 +164,18 @@ header {
   flex-direction: row-reverse;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 970px) {
   .menu {
     display: none; 
   }
  
+}
+@media screen and (max-width: 969px) {
+ 
+  #overlay-button  {
+    display: block;
+  }
+  
 }
 .navbar-brand {
   display: block; 
@@ -310,13 +317,7 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 #overlay-button {
   cursor: pointer;
 }
-@media screen and (max-width: 600px) {
- 
-  #overlay-button  {
-    display: block;
-  }
-  
-}
+
 
 
 
