@@ -39,9 +39,6 @@
                  <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
                  シェア
                   <% end %>
-                  <p class="created">
-                   <%= l pose.created_at, format: :short %></li>
-                   </p>
                   
               </p>
             <% end %>
