@@ -166,13 +166,7 @@ header {
   }
  
 }
-@media screen and (max-width: 969px) {
- 
-  #overlay-button  {
-    display: block;
-  }
-  
-}
+
 .navbar-brand {
   display: block; 
   padding: 10px 5px; 
@@ -316,7 +310,13 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 
 
 
-
+@media screen and (max-width: 969px) {
+ 
+  #overlay-button  {
+    display: block;
+  }
+  
+}
 .post-tags{
   margin-top: 0.5em;
 }
