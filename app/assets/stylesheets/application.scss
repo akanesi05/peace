@@ -160,19 +160,6 @@ header {
   flex-direction: row-reverse;
 }
 
-@media (max-width: 970px) {
-  .menu {
-    display: none; 
-  }
- 
-}
-@media screen and (max-width: 969px) {
- 
-  #overlay-button  {
-    display: block;
-  }
-  
-}
 .navbar-brand {
   display: block; 
   padding: 10px 5px; 
@@ -203,6 +190,19 @@ body {
     padding: 0;
   }
 }
+@media (max-width: 970px) {
+  .menu {
+    display: none; 
+  }
+ 
+}
+@media screen and (max-width: 969px) {
+ 
+  #overlay-button  {
+    display: block;
+  }
+  
+}
 #overlay-button {
   display: none;
   position: absolute;
@@ -212,6 +212,9 @@ body {
   z-index: 5;
   cursor: pointer;
   user-select: none;
+}
+#overlay-button {
+  cursor: pointer;
 }
 #overlay-button span {
   height: 4px;
@@ -269,7 +272,6 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 #overlay {
   height: 100vh;
   width: 100vw;
-  //background: #1cd49a;
   background: hsl(304, 92%, 69%);
   z-index: 2;
   visibility: hidden;
@@ -310,9 +312,7 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
   height: 40px;
 }
 
-#overlay-button {
-  cursor: pointer;
-}
+
 
 
 
