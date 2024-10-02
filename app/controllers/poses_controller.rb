@@ -183,6 +183,9 @@ class PosesController < ApplicationController
     end
   end
 
+  def preview
+  end
+
   private
 
   def pose_params
