@@ -7,10 +7,11 @@
       <div class="card-body">
         <div class="d-flex column-gap-2">
           <h4 class="card-title"><%= link_to pose.name, pose %></h4>
-            <p class="post-tags">
-              <% pose.tags.each do |tag| %>
-              <span class="tag"></span>
-              <% end %>
+            
+           <p class="post-tags">
+             <% pose.tags.each do |tag| %>
+               <span class="tag"><%= tag.name %></span>
+             <% end %>
            </p>
           <% if current_user && current_user.own?(pose) %>
             <div class=''>
