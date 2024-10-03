@@ -19,12 +19,12 @@ Rails.application.routes.draw do
 
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
-
+  post 'poses/confirm', to: 'poses#confirm'
   resources :poses do
     collection do
       get :bookmarks
       get :ranking
-      post :confirm
+      #get :confirm
     end
     get :search, on: :collection
   end
