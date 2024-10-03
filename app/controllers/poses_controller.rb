@@ -183,7 +183,8 @@ class PosesController < ApplicationController
     end
   end
 
-  def preview
+  def confirm
+    
   end
 
   private

@@ -343,4 +343,10 @@ input[type=checkbox]:checked ~ #overlay-button span:after {
 }
 
 
-
+.preview{
+  display: flex;
+  padding: 4px;
+}
+.preview-buttub{
+  padding: 4px;
+}
