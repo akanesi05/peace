@@ -1,15 +1,16 @@
-<footer id='footer' class='footer-bottom'>
-    <div class='container'>
-      <div class='row'>
-        <div class='col-sm-6 col-12'>
-          <div class='copyright'>
-            <p>Copyright © 2024. ピス卒</p>            
+<footer class="footer-001">
+    
+    <%= link_to '/', class: 'navbar-brand' do %>
+      <%= image_tag 'logo.png' %> 
+    <% end %>
+    <nav>
+        <ul class="footer-001__list">
             <%= link_to t('links.terms'), privacy_path, class: 'nav-link' %>
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9TYrCpOFPBvYvnLhYWCiNRXsCbividOKjMZpSF3Eq2QA-8w/viewform?usp=sf_link" target="_blank" class="nav-link">お問い合わせ</a>
+             <a href="https://docs.google.com/forms/d/e/1FAIpQLSf9TYrCpOFPBvYvnLhYWCiNRXsCbividOKjMZpSF3Eq2QA-8w/viewform?usp=sf_link" target="_blank" class="nav-link">お問い合わせ</a>
 
+            
+        </ul>
+    </nav>
+    <p class="footer-001__copyright">@ 2024 ピス卒</p>
+</footer>
 
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
