@@ -183,7 +183,11 @@ class PosesController < ApplicationController
     end
   end
 
-  def preview
+  
+  def confirm
+    @pose = Pose.new(pose_params)
+    #render :confirm
+    #render :new if @pose.invalid?
   end
 
   private

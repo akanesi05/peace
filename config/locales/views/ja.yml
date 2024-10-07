@@ -5,6 +5,7 @@ ja:
       submit: 保存
       update: 更新
       edit: 編集
+      confirm: 確認
     label:
       email: メールアドレス
       password: パスワード
@@ -89,6 +90,8 @@ ja:
       title: ブックマーク
     edit:
       title: ポーズ編集
+    preview:
+      title: 確認画面
     check:
       check_out_this_pose: このポーズをチェック#{pose.name}
   buttons:
