@@ -3,7 +3,8 @@
     <div class="col-md-10 col-lg-8 mx-auto">
       <h1>ポーズ名</h1><p>投稿した画像内の顔を隠すよ</p>
       <p>投稿した画像は300KBまでなら投稿できるよ!縮小する場合は、<%= link_to 'こちら', 'https://resizer.myct.jp/',target:"_blank"%></p>
-      <%= form_with model: @pose do |f| %>
+      <%#>= form_with model: @pose do |f| %>
+      <%= form_with model:@pose,url: poses_confirm_path(@pose),data: {turbo:false} do |f| %>
       <%= render 'shared/error_messages', object: f.object %>
         <div class="mb-3">
           <%= f.label :name, class: "form-label" %>
@@ -20,7 +21,7 @@
           <%= label_tag :tag_name, "タグ（,区切りで入力してください）", class: "form-label" %>
           <%= text_field_tag :tag_name, tag_name, class: "form-control", style: "width: 100%;" %>
          </div>      
-        <%= f.submit "登録", class: "btn btn-primary" %>
+        <%= f.submit "確認画面へ", class: "btn btn-primary" %>
       <% end %>
       
     </div>
