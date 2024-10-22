@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 ruby '3.2.2'
@@ -61,12 +63,19 @@ gem 'pry-doc'
 gem 'pry-rails'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'ransack'
-gem 'rubocop'
 gem 'sorcery', '0.16.3'
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
   gem 'letter_opener_web', '~> 2.0'
+
+  # rubocop
+  gem "rubocop", require: false
+  gem "rubocop-rails", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rspec", require: false
+  gem "rubocop-rubycw", require: false
+  gem "rubocop-inflector", require: false # https://qiita.com/aeroastro/items/0152b7509613547d2068
 end
 
 group :development do
