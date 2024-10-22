@@ -26,7 +26,7 @@ require:
   - rubocop-performance
   - rubocop-rspec
   - rubocop-rubycw
-  - rubocop-inflector
+  # - rubocop-inflector
 
 Rails:
   Enabled: true

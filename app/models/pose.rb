@@ -8,7 +8,7 @@ class Pose < ApplicationRecord
   validate :image_presence
 
   def image_presence
-    errors.add(:image, 'をアップロードしてください') unless image.present?
+    errors.add(:image, "をアップロードしてください") unless image.present?
   end
 
   def self.ransackable_attributes(_auth_object = nil)
