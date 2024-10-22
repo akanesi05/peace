@@ -6,15 +6,15 @@ class SessionsController < ApplicationController
 
     if user
       session[:user_id] = user.id
-      redirect_to root_url, notice: 'ログイン成功！'
+      redirect_to root_url, notice: "ログイン成功！"
     else
-      flash.now.alert = 'メールまたはパスワードが間違っています。'
+      flash.now.alert = "メールまたはパスワードが間違っています。"
       render :new
     end
   end
 
   def destroy
     session[:user_id] = nil
-    redirect_to root_url, notice: 'ログアウトしました。'
+    redirect_to root_url, notice: "ログアウトしました。"
   end
 end

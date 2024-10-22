@@ -1,10 +1,5 @@
 Config.setup do |config|
-  config.const_name = 'Settings'
+  config.const_name = "Settings"
 
-  config.env_prefix = 'SETTINGS'
-
-  
-  
-
- 
+  config.env_prefix = "SETTINGS"
 end
