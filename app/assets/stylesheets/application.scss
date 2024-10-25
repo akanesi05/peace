@@ -72,9 +72,12 @@ body {
 
 .card {
   background: linear-gradient(#d6a1ff ,#5595f7);
+  object-fit: cover;
 
 }
-
+.card-img-top{
+  object-fit: contain;
+}
 .card-title{
   color:#f7eef6;
   white-space: nowrap;

@@ -16,7 +16,7 @@
         <td class="rankinga"><%= ranked_pose[:rank] %>位</td>
         <td class="rankinga"><%= ranked_pose[:pose].name %></td>
         <td class="rankinga"><%= ranked_pose[:pose].bookmarks_count %></td>
-        <td class="rankinga"><%= image_tag ranked_pose[:pose].image.to_s, width: "300", height: "200"  %></td>
+        <td class="ranking"><%= image_tag ranked_pose[:pose].image.to_s, width: "300", height: "200",class: "card-img-top" %></td>
       </tr>
     <% end %>
   
