@@ -1,12 +1,12 @@
 <%= search_form_for q, url: poses_path do |f| %>
-    <div class="input-group mb-3">
+  <div class="input-group mb-3">
     <div data-controller="autocomplete" data-autocomplete-url-value="/poses/search" role="combobox">
       <%= f.search_field :name_cont, data: { autocomplete_target: 'input' },class: 'form-control', placeholder: '検索ワード', maxlength: "300" %>
       <%= f.hidden_field :name, data: { autocomplete_target: 'hidden' }, maxlength: "300" %>
-		<ul class="list-group " data-autocomplete-target="results"></ul>
-      </div>
-      <div class="input-group-append">
-        <%= f.submit  class: 'btn btn-primary' %>
-      </div>
+		  <ul class="list-group " data-autocomplete-target="results"></ul>
     </div>
-  <% end %>
+    <div class="input-group-append">
+      <%= f.submit  class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
