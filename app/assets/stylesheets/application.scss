@@ -70,11 +70,25 @@ body {
 }
 
 
+.card-parent{
+  display: flex;
+  flex-direction: column;
+}
 .card {
   background: linear-gradient(#d6a1ff ,#5595f7);
   object-fit: cover;
+  display: flex;
+  flex-direction: column;
 
 }
+.card-title{
+  margin-bottom: 40px;
+}
+.card-body {
+  flex-grow: 1;
+  height: 85px;
+}
+
 .card-img-top{
   object-fit: contain;
 }

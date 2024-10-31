@@ -1,5 +1,5 @@
-<div class="col-sm-12 col-lg-4 mb-3">
-  <div id="pose-id-<%= pose.id %>">
+<div class="col-sm-12 col-lg-4 mb-3" class="card-parents">
+  <div id="pose-id-<%= pose.id %>" class="card-parent">
     <div class="card">
       <%= link_to pose do %>
         <%= image_tag pose.image_url, class: "card-img-top", width: "300", height:"500"  %>
@@ -7,11 +7,11 @@
       <div class="card-body">
         <div class="d-flex column-gap-2">
           <h4 class="card-title"><%= link_to pose.name, pose %></h4>       
-           <p class="post-tags">
-             <% pose.tags.each do |tag| %>
-               <span class="tag"><%= tag.name %></span>
-             <% end %>
-           </p>
+          <p class="post-tags">
+            <% pose.tags.each do |tag| %>
+              <span class="tag"><%= tag.name %></span>
+            <% end %>
+          </p>
           <% if current_user && current_user.own?(pose) %>
             <div class=''>
               <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
@@ -23,27 +23,20 @@
                 <i class="bi bi-trash2-fill"></i>
               <% end %>
             </div>
+          <% end %>       
+          <% if controller.controller_name == "poses" && controller.action_name != "show" %>
+            <p>
+              <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                シェア
+              <% end %> 
+            </p>                               
+          <% else %>
+            <p>
+              <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
+                シェア
+              <% end %>                
+            </p>
           <% end %>
-          
-            <% if controller.controller_name == "poses" && controller.action_name != "show" %>
-              <p>
-              
-                <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-               シェア
-                </p>
-            <% end %>
-              
-            <% else %>
-               <p>
-  
-                 <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-                 シェア
-                  <% end %>
-                  
-              </p>
-            <% end %>
-           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
-           <% end %>
           <div class=''>
             <% if current_user %>
               <% if current_user && current_user.bookmark?(pose) %>
@@ -54,15 +47,13 @@
             <% end %>
           </div>
           <ul class="list-inline">
-          <%= link_to pose.user.name, user_path(pose.user) %></li>
-        </ul>
-        <% if current_user %>
+            <%= link_to pose.user.name, user_path(pose.user) %></li>
+          </ul>
+          <% if current_user %>
             <%= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
-        <% else %>
+          <% else %>
             <%= image_tag 'sample2.jpeg', class: 'rounded-circle mr15', width: '40', height: '40' %>
-        <% end %>
-  
-        
+          <% end %>        
         </div>
       </div>
     </div>
