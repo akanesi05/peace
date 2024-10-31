@@ -81,12 +81,10 @@ body {
   flex-direction: column;
 
 }
-.card-title{
-  margin-bottom: 40px;
-}
+
 .card-body {
   flex-grow: 1;
-  height: 85px;
+  height: 130px;
 }
 
 .card-img-top{
@@ -94,7 +92,14 @@ body {
 }
 .card-title{
   color:#f7eef6;
-  white-space: nowrap;
+  white-space: normal;
+  a{ 
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
 }
 
 
