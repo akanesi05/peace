@@ -12,23 +12,19 @@
         <tr>
           <th scope="row"><%= User.human_attribute_name(:name) %></th>
           <td><%= current_user.name %></td>
-        </tr>
-        
+        </tr>     
          <tr>
           <%# <th scope="row"><%= User.human_attribute_name(:favorite_genre) %><%#</th>%>
           <%# <td><%= current_user.favorite_genre %><%#</td> %>
-        </tr>
-        
+        </tr>      
         <tr>
           <th scope="row"><%= User.human_attribute_name(:avatar) %></th>
           <td><%= image_tag current_user.avatar_url, class: 'rounded-circle', size: '50x50' %></td>
         </tr>
-
         <div id="poses" class="row">
            <% @poses.each do |pose| %>
            <%= render partial: 'poses/pose', locals: { pose: pose } %>
-           <% end %>
-       
+           <% end %>     
       </table>
       <%= paginate @poses, theme: 'bootstrap-5' %>
     </div>
