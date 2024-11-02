@@ -1,16 +1,9 @@
 <% content_for(:title, t('pose.bookmarks.title')) %>
-
-
 <div class="container">
   <div class="row">
-    <div class="col-lg-10 offset-lg-1">
-
-    
+    <div class="col-lg-10 offset-lg-1">   
       <p style="color: green"><%= notice %></p>
-
- 
       <h2>ブックマーク一覧</h2>
-
     </div>
   </div>
   <div class="row">
@@ -25,6 +18,5 @@
       <%= paginate @bookmark_poses, theme: 'bootstrap-5' %>
     </div>
   </div>
-
   <%= link_to "新ポーズ", new_pose_path %>
 </div>
