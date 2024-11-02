@@ -5,21 +5,19 @@
         <%= image_tag pose.image_url, class: "card-img-top", width: "300", height:"500"  %>
       <% end %>
       <div class="card-body">
-        <h4 class="card-title"><%= link_to pose.name, pose %></h4>    
-        <div class="d-flex column-gap-2">    
-          <p class="post-tags">
+        <h4 class="card-title"><%= link_to pose.name, pose %></h4>
+        <p class="post-tags">
             <% pose.tags.each do |tag| %>
               <span class="tag"><%= tag.name %></span>
             <% end %>
-          </p>
+          </p>    
+        <div class="d-flex column-gap-2">    
           <% if current_user && current_user.own?(pose) %>
             <div class=''>
               <%= link_to edit_pose_path(pose), id: "button-edit-#{pose.id}" do %>
-                <%= t('buttons.edit') %>
                 <i class="bi bi-pencil-square"></i>
               <% end %>
               <%= link_to pose_path(pose), id: "button-delete-#{pose.id}", data: { turbo_method: :delete, turbo_confirm: t('defaults.delete_confirm') } do %>
-                <%= t('buttons.delete') %>
                 <i class="bi bi-trash2-fill"></i>
               <% end %>
             </div>
@@ -27,13 +25,14 @@
           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
             <p>
               <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-                シェア
+              <i class="bi bi-share"></i>
+              
               <% end %> 
             </p>                               
           <% else %>
             <p>
               <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-                シェア
+              <i class="bi bi-share"></i>
               <% end %>                
             </p>
           <% end %>

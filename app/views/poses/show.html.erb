@@ -4,29 +4,30 @@
   <div class="row mb-3">
     <div class="col-lg-8 offset-lg-2">
       <h1><%= t('pose.show.title') %></h1>
-      <p style="color: green"><%= notice %></p>
-        <article class="card">
-          <div class="card-body">
-            <div class="row">
-              <div class="col-md-3">
-                <%= image_tag @pose.image.url, width: "600", height: "400", class: " img-fluid" %>
-              </div>
-              <div class ="posebody">
-              <div class="col-md-9">
-                <h3 style="display: inline;"><%= @pose.name %></h3>
-                <ul class="list-inline">
-                  <li class="list-inline-item"><%= "作成者: #{@pose.user.name}" %></li>
-                  <li class="list-inline-item"><%= l(@pose.created_at, format: :long) %></li>
-                </ul>
-              </div>
-              </div>
-              </div>
+
+      <p style="color: green"><%= notice %></p>   
+      <article class="card">
+        <div class="col-md-3">
+          <%= image_tag @pose.image.url, class: " img-fluid" %>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class ="posebody">
+            <div class="col-md-9">
+              <h3 style="display: inline;"><%= @pose.name %></h3>
+              <ul class="list-inline">
+                <li class="list-inline-item"><%= "作成者: #{@pose.user.name}" %></li>
+                <li class="list-inline-item"><%= l(@pose.created_at, format: :long) %></li>
+              </ul>
+            </div>
             </div>
           </div>
-        </article>
-  <div>
-    <%= link_to t('links.back_to_poses'), poses_path, class: "btn btn-primary mt-3" %>
-  </div>
-  </div>
+        </div>
+        </div>
+      </article>
+      <div>
+        <%= link_to t('links.back_to_poses'), poses_path, class: "btn btn-primary mt-3" %>
+      </div>
+    </div>
   </div>
 </div>
