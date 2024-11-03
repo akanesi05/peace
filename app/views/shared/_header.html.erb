@@ -1,60 +1,50 @@
-
- 
-  
-  <header>
-   <div class= "header-logo">
+<header>
+  <div class= "header-logo">
     <%= link_to '/', class: 'navbar-brand' do %>
       <%= image_tag 'logo.png' %> 
-    <% end %>
-    
-   </div>
-   <div class="header-menu">
-     <ul class="menu">
-       <li class='list'>
-          <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
-          </li>
-           <li class='list'>
-          <%= link_to t('header.pose_bookmark'), bookmarks_poses_path, class: 'nav-link' %>
-        </li>
-        <li class='list'>
-          <%= link_to t('header.profile'), profile_path, class: 'nav-link' %>
-        </li>
-         <li class='list'>       
-          <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
-        </li>       
-        <li class='list'>
-          <%= link_to t('header.logout'), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
-        </li>
-      
-     </ul>
-   </div>
-   
-  </header>
-
- 
-
-<input type="checkbox" id="overlay-input" />
-<label for="overlay-input" id="overlay-button"><span></span></label>
-  <div id="overlay">
-    <ul>
-       <li class='nav-item'>
-          <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
-          </li>
-           <li class='nav-item'>
-          <%= link_to t('header.pose_bookmark'), bookmarks_poses_path, class: 'nav-link' %>
-        </li>
-        <li class='nav-item'>
-          <%= link_to t('header.profile'), profile_path, class: 'nav-link' %>
-        </li>
-         <li class='nav-item'>       
-          <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
-        </li>       
-        <li class='nav-item'>
-          <%= link_to t('header.logout'), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
-        </li>
-      
-    </ul>
+    <% end %> 
   </div>
+  <div class="header-menu">
+    <ul class="menu">
+      <li class='list'>
+        <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
+      </li>
+      <li class='list'>
+        <%= link_to t('header.pose_bookmark'), bookmarks_poses_path, class: 'nav-link' %>
+      </li>
+      <li class='list'>
+        <%= link_to t('header.profile'), profile_path, class: 'nav-link' %>
+      </li>
+      <li class='list'>       
+        <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
+      </li>       
+      <li class='list'>
+        <%= link_to t('header.logout'), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
+      </li>   
+    </ul>
+  </div>  
+</header>
+<input type="checkbox" id="overlay-input" />
+<label for="overlay-input" id="overlay-button"></label>
+<div id="overlay">
+  <ul>
+    <li class='nav-item'>
+      <%= link_to t('header.pose_index'), poses_path, class: 'nav-link' %>
+    </li>
+    <li class='nav-item'>
+      <%= link_to t('header.pose_bookmark'), bookmarks_poses_path, class: 'nav-link' %>
+    </li>
+    <li class='nav-item'>
+      <%= link_to t('header.profile'), profile_path, class: 'nav-link' %>
+    </li>
+    <li class='nav-item'>       
+      <%= link_to t('header.pose_ranking'), ranking_poses_path, class: 'nav-link' %>
+    </li>       
+    <li class='nav-item'>
+      <%= link_to t('header.logout'), logout_path, class: "nav-link", data: { turbo_method: :delete } %>
+    </li>    
+  </ul>
+</div>
 
    
 

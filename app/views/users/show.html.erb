@@ -1,5 +1,4 @@
 <p style="color: green"><%= notice %></p>
-
 <%= render @user %>
 <div id="poses" class="row">
 <% @poses.each do |pose| %>
@@ -7,4 +6,3 @@
 <% end %>
 <%= paginate @poses, theme: 'bootstrap-5' %>
 </div>
-
