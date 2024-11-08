@@ -7,10 +7,10 @@
       <div class="card-body">
         <h4 class="card-title"><%= link_to pose.name, pose %></h4>
         <p class="post-tags">
-            <% pose.tags.each do |tag| %>
-              <span class="tag"><%= tag.name %></span>
-            <% end %>
-          </p>    
+          <% pose.tags.each do |tag| %>
+            <span class="tag"><%= tag.name %></span>
+          <% end %>
+        </p>    
         <div class="d-flex column-gap-2">    
           <% if current_user && current_user.own?(pose) %>
             <div class=''>
@@ -25,8 +25,7 @@
           <% if controller.controller_name == "poses" && controller.action_name != "show" %>
             <p>
               <%= link_to "https://twitter.com/share?url=#{pose_url(pose)}&text=このポーズをチェック:#{pose.name}+#{CGI.escape('#ピス卒')}", target: '_blank', data: { toggle: "tooltip", placement: "bottom" }, title: "Xでシェア" do %>
-              <i class="bi bi-share"></i>
-              
+              <i class="bi bi-share"></i>           
               <% end %> 
             </p>                               
           <% else %>
@@ -48,11 +47,7 @@
           <ul class="list-inline">
             <%= link_to pose.user.name, user_path(pose.user) %></li>
           </ul>
-          <% if current_user %>
-            <%= image_tag current_user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>
-          <% else %>
-            <%= image_tag 'sample2.jpeg', class: 'rounded-circle mr15', width: '40', height: '40' %>
-          <% end %>        
+           <%= image_tag  pose.user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %>           
         </div>
       </div>
     </div>

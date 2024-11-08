@@ -11,7 +11,7 @@
   </div>
   <div id="poses" class="row">
     <% @poses.each do |pose| %>
-      <%= render pose %>      
+      <%= render pose %>  <%#ポーズのパーシャルを呼び出している。パーシャルの中にポーズの変数を渡している。これにより、パーシャルの中で、ポーズという変数が使えるようになる。使いたい変数にやって＠をつけないといけない.ポーズのパーシャルの中は、indexのrenderが＠ついていないので＠をつけてはいけなかった%>    
     <% end %>
     <%= paginate @poses, theme: 'bootstrap-5' %>
   </div>
