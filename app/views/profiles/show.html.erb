@@ -24,7 +24,8 @@
         <div id="poses" class="row">
            <% @poses.each do |pose| %>
            <%= render partial: 'poses/pose', locals: { pose: pose } %>
-           <% end %>     
+           <% end %> 
+        </div>    
       </table>
       <%= paginate @poses, theme: 'bootstrap-5' %>
     </div>
