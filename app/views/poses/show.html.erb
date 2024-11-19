@@ -20,7 +20,7 @@
                     <span class="tag"><%= tag.name %></span>
                   <% end %>
                 <li class="list-inline-item"><%= "作成者: #{@pose.user.name}" %></li>
-                 <%= image_tag  @pose.user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %> 
+                <%= image_tag  @pose.user.avatar_url, class: 'rounded-circle mr15', width: '40', height: '40' %> 
                 <li class="list-inline-item"><%= l(@pose.created_at, format: :long) %></li>
                 <div class='d-flex justify-content-end'>
                   <% if logged_in? %>
