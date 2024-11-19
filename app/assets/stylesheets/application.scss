@@ -88,7 +88,6 @@ body {
 
 .card-body {
   flex-grow: 1;
-  height: 130px;
 }
 
 .card-img-top{
@@ -105,7 +104,6 @@ body {
     overflow: hidden;
   }
 }
-
 
 .time{
   color:#54E7F7; 
@@ -126,7 +124,6 @@ a {
 a:hover {
   color:#E7F754; 
 }
-
 
 
 .selected a {
@@ -151,29 +148,15 @@ color:  rgb(27, 25, 146);
   margin: 5px 0;
 }
 
-.gold {
-  background-color: rgb(237, 234, 62);
-  font-family: 'Amatic SC', cursive;
-  font-size: 50px;
-
+.tr{
+  font-size: 22px;
 }
 
-.silver {
-  background-color: silver;
-  font-family: 'Amatic SC', cursive;
-  font-size: 50px;
+.th{
+  padding: 10px;
 }
-
-.bronze {
-  background-color: #d08a45; /* 銅色 */
-  font-family: 'Amatic SC', cursive;
-  font-size: 50px;
-}
-
-
 .rankinga{
-  font-size: 50px;
-  font-family: 'Amatic SC', cursive;
+  font-size: 20px;
 }
 
 .content-center {
