@@ -11,7 +11,9 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 10 }
   validates :email, presence: true, uniqueness: true, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
   validates :reset_password_token, uniqueness: true, allow_nil: true
+
   def own?(object)
+    return false if id.nil?
     id == object&.user_id
   end
 
